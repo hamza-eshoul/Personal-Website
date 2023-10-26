@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .nav-links {
+    @apply cursor-pointer hover:text-secondaryColor transition duration-200 ease-in-out;
+  }
+
+  .social-links {
+    @apply text-lightTertiaryColor text-xl cursor-pointer;
+  }
+
+  .animate-social-links {
+    @apply hover:text-secondaryColor hover:-translate-y-1 transition-transform duration-300 ease-in-out;
+  }
+
+  .email-link {
+    @apply text-lightTertiaryColor cursor-pointer rotate-90;
+  }
+
+  .animate-email-link {
+    @apply hover:text-secondaryColor hover:-translate-y-1 transition-transform duration-300 ease-in-out;
+  }
+}
