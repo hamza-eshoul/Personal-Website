@@ -4,22 +4,113 @@
 
 @layer components {
   .nav-links {
-    @apply cursor-pointer hover:text-secondaryColor transition duration-200 ease-in-out;
+    @apply cursor-pointer text-[13px] text-lightestTertiaryColor transition duration-300 ease-in-out hover:text-secondaryColor;
   }
 
   .social-links {
-    @apply text-lightTertiaryColor text-xl cursor-pointer;
+    @apply cursor-pointer text-[22px] text-lightTertiaryColor;
   }
 
   .animate-social-links {
-    @apply hover:text-secondaryColor hover:-translate-y-1 transition-transform duration-300 ease-in-out;
+    @apply transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:text-secondaryColor;
   }
 
   .email-link {
-    @apply text-lightTertiaryColor cursor-pointer rotate-90;
+    @apply rotate-90 cursor-pointer text-lightTertiaryColor;
   }
 
   .animate-email-link {
-    @apply hover:text-secondaryColor hover:-translate-y-1 transition-transform duration-300 ease-in-out;
+    @apply transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:text-secondaryColor;
   }
+
+  .project-links {
+    @apply cursor-pointer text-[22px] text-lightestTertiaryColor transition duration-300 ease-in-out hover:text-secondaryColor;
+  }
+
+  .noteworthy-project-links {
+    @apply cursor-pointer text-[22px] text-tertiaryColor transition duration-300 ease-in-out hover:text-secondaryColor;
+  }
+}
+
+.logo-svg {
+  fill: #0a192f;
+  z-index: 10;
+}
+
+.logo-svg-background {
+  fill: #64ffda;
+}
+
+.logo-svg,
+.logo-svg-background {
+  width: 42px;
+  height: 48px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+/* Sans Fonts */
+@font-face {
+  font-family: "Calibre";
+  src: url("./assets/fonts/Sans/CalibreRegular.otf");
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("./assets/fonts/Sans/Inter-Regular.ttf");
+}
+
+@font-face {
+  font-family: "San Fransisco";
+  src: url("./assets/fonts/Sans/SFNSText-Regular.otf");
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("./assets/fonts/Sans/SF-Pro-Text.ttf");
+}
+
+.font-sans {
+  font-family:
+    "Calibre",
+    "Inter",
+    "Sans Fransisco",
+    "SF Pro Text",
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+/* Mono Fonts */
+
+@font-face {
+  font-family: "SF Mono";
+  src: url("./assets/fonts/Mono/SFMonoRegular.otf");
+}
+
+@font-face {
+  font-family: "Fira Code";
+  src: url("./assets/fonts/Mono/FiraCode-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Fira Mono";
+  src: url("./assets/fonts/Mono/FiraMono-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("./assets/fonts/Mono/RobotoMono-Regular.ttf");
+}
+
+@font-face {
+  font-family: "monospace";
+  src: url("./assets/fonts/Mono/SpaceMono-Regular.ttf");
+}
+
+.font-mono {
+  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", "monospace";
 }

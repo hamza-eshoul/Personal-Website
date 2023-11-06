@@ -1,26 +1,31 @@
+import Logo from "./Logo";
+
 const Navbar = () => {
   return (
-    <nav className="flex justify-between p-10">
-      <p className="text-secondaryColor border-[1px] border-secondaryColor rounded-3xl px-4 py-2.5 font-semibold">
-        H{" "}
-      </p>
-      <ul className="flex gap-6 items-center">
+    <nav className="flex justify-between px-[50px] py-[26px] font-mono">
+      <Logo />
+
+      <ul className="flex items-center gap-9">
         <li className="nav-links">
-          <span className="text-secondaryColor">01.</span> About
+          <span className=" text-[12px] text-secondaryColor">01.</span> About
         </li>
         <li className="nav-links">
-          <span className="text-secondaryColor">02.</span> Experience
+          <span className="text-[12px] text-secondaryColor">02.</span>{" "}
+          Experience
+        </li>
+        <li className="nav-links">
+          <span className="text-[12px] text-secondaryColor">03.</span> Work
+        </li>
+        <li className="nav-links">
+          <span className="text-[12px] text-secondaryColor">04.</span> Contact
         </li>
         <li>
-          <span className="text-secondaryColor">03.</span> Work
-        </li>
-        <li className="nav-links">
-          <span className="text-secondaryColor">04.</span> Contact
-        </li>
-        <li className="text-secondaryColor">
-          <button className="border-[1px] border-secondaryColor p-2 rounded">
-            Resume
-          </button>
+          <div className={`group relative h-[38px] w-[84px]`}>
+            <button className="absolute bottom-0 left-0 right-0 top-0 z-20 rounded border-[1px] border-secondaryColor bg-primaryColor font-mono text-[14px] text-secondaryColor transition-transform duration-300 ease-in-out group-hover:-translate-x-1 group-hover:-translate-y-1">
+              Resume
+            </button>
+            <div className="absolute bottom-0 left-0 right-0 top-0 rounded bg-secondaryColor"></div>
+          </div>
         </li>
       </ul>
     </nav>

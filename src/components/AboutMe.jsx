@@ -2,14 +2,14 @@ import defaultProfile from "../assets/defaultProfile.png";
 
 const AboutMe = () => {
   return (
-    <section className="max-w-4xl mx-auto pt-72">
-      <header className="flex gap-6 items-center">
+    <section className="mx-auto max-w-4xl pt-72">
+      <header className="flex items-center gap-6">
         <h1>
           {" "}
-          <span className="text-secondaryColor text-[26px] pr-3">
+          <span className="pr-3 font-mono text-[26px] text-secondaryColor">
             01.{" "}
           </span>{" "}
-          <span className="text-lightestTertiaryColor font-semibold text-[32px]">
+          <span className="text-[32px] font-semibold text-lightestTertiaryColor">
             About Me{" "}
           </span>
         </h1>
@@ -17,7 +17,7 @@ const AboutMe = () => {
       </header>
 
       <div className="flex gap-10">
-        <section className="pt-6 w-1/2 text-justify leading-7">
+        <section className="w-1/2 pt-6 text-justify text-[20px] font-normal leading-7">
           <p>
             Hello! My name is Brittany and I enjoy creating things that live on
             the internet. My interest in web development started back in 2012
@@ -46,13 +46,14 @@ const AboutMe = () => {
           </p>
         </section>
 
-        <div className="h-72 w-72 border-[1px] border-secondaryColor rounded relative">
+        <div className="group relative h-72 w-72 transition duration-300 ease-in-out hover:-translate-x-3 hover:-translate-y-3">
           <img
             src={defaultProfile}
             alt="profile"
-            className="h-full w-full rounded -translate-y-3 -translate-x-3 hover:-translate-y-6 hover:-translate-x-6 transition-all duration-300 ease-in-out"
+            className="h-full w-full rounded"
           />
-          <div className="bg-secondaryColor absolute top-0 right-0 left-0 bottom-0 opacity-70 -translate-y-3 -translate-x-3" />
+          <div className="absolute bottom-0 left-0 right-0 top-0 rounded bg-secondaryColor opacity-70 transition duration-200 ease-in-out group-hover:opacity-0" />
+          <div className="absolute bottom-0 left-0 right-0 top-0 z-0 translate-x-4 translate-y-4 rounded border-[2px] border-secondaryColor" />
         </div>
       </div>
     </section>
