@@ -14,19 +14,22 @@ const App = () => {
     <>
       <div className="min-h-screen bg-primaryColor font-sans leading-[1.3] text-tertiaryColor antialiased">
         <Navbar />
-        <Home />
 
-        <AboutMe />
-        <Skills />
+        <main className="mx-auto max-w-5xl">
+          <Home />
 
-        <Projects />
-        <NoteworthyProjects />
+          <AboutMe />
+          <Skills />
 
-        <Contact />
-        <Footer />
+          <Projects />
+          <NoteworthyProjects />
 
-        <SocialLinks />
-        <EmailLink />
+          <Contact />
+          <Footer />
+
+          <SocialLinks />
+          <EmailLink />
+        </main>
       </div>
     </>
   );

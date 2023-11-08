@@ -11,7 +11,8 @@
     @apply cursor-pointer text-[22px] text-lightTertiaryColor;
   }
 
-  .animate-social-links {
+  .animate-social-links,
+  .animate-skill-icons {
     @apply transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:text-secondaryColor;
   }
 
@@ -24,11 +25,15 @@
   }
 
   .project-links {
-    @apply cursor-pointer text-[22px] text-lightestTertiaryColor transition duration-300 ease-in-out hover:text-secondaryColor;
+    @apply cursor-pointer text-[20px] text-lightestTertiaryColor transition duration-300 ease-in-out hover:text-secondaryColor;
   }
 
   .noteworthy-project-links {
-    @apply cursor-pointer text-[22px] text-tertiaryColor transition duration-300 ease-in-out hover:text-secondaryColor;
+    @apply cursor-pointer text-[22px] text-lightTertiaryColor transition duration-300 ease-in-out hover:text-secondaryColor;
+  }
+
+  .skill-items {
+    @apply cursor-pointer border-l-[2px] border-lightestPrimaryColor p-3 transition duration-300 ease-in-out hover:rounded-b-[1px] hover:rounded-t-[1px] hover:bg-lightPrimaryColor hover:text-secondaryColor;
   }
 }
 
