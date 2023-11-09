@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import SocialLinks from "./components/SocialLinks";
@@ -10,22 +12,24 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 const App = () => {
+  const [language, setLanguage] = useState("French");
+
   return (
     <>
       <div className="min-h-screen bg-primaryColor font-sans leading-[1.3] text-tertiaryColor antialiased">
-        <Navbar />
+        <Navbar language={language} setLanguage={setLanguage} />
 
         <main className="mx-auto max-w-5xl">
-          <Home />
+          <Home language={language} />
 
-          <AboutMe />
-          <Skills />
+          <AboutMe language={language} />
+          <Skills language={language} />
 
-          <Projects />
-          <NoteworthyProjects />
+          <Projects language={language} />
+          <NoteworthyProjects language={language} />
 
-          <Contact />
-          <Footer />
+          <Contact language={language} />
+          <Footer language={language} />
 
           <SocialLinks />
           <EmailLink />

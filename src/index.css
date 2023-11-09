@@ -33,7 +33,7 @@
   }
 
   .skill-items {
-    @apply cursor-pointer border-l-[2px] border-lightestPrimaryColor p-3 transition duration-300 ease-in-out hover:rounded-b-[1px] hover:rounded-t-[1px] hover:bg-lightPrimaryColor hover:text-secondaryColor;
+    @apply cursor-pointer border-l-[2px] border-lightestPrimaryColor px-5 py-3.5 font-mono text-[13px] transition duration-300 ease-in-out  hover:bg-lightPrimaryColor hover:text-secondaryColor;
   }
 }
 
@@ -118,4 +118,19 @@
 
 .font-mono {
   font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", "monospace";
+}
+
+.fade-in-animation {
+  animation-duration: 0.4s;
+  animation-name: fade-in;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

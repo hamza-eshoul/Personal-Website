@@ -3,7 +3,7 @@ import FrontendSkills from "./FrontendSkills";
 import BackendSkills from "./BackendSkills";
 import DevOpsAndTestingSkills from "./DevOpsAndTestingSkills";
 
-const Skills = () => {
+const Skills = ({ language }) => {
   const [isFrontend, setIsFrontend] = useState(true);
   const [isBackend, setIsBackend] = useState(false);
   const [isDevOpsAndTesting, setIsDevOpsAndTesting] = useState(false);
@@ -28,50 +28,60 @@ const Skills = () => {
 
   return (
     <section className="mx-32 pt-72">
-      <header className="flex items-center gap-6">
+      <header className="flex items-center gap-6 pb-10">
         <h1>
           {" "}
           <span className="pr-3 font-mono text-[26px] text-secondaryColor">
             02.{" "}
           </span>{" "}
-          <span className="text-[32px] font-semibold text-lightestTertiaryColor">
-            Skills & Technologies{" "}
-          </span>
+          {language == "French" && (
+            <span className="fade-in-animation text-[32px] font-semibold text-lightestTertiaryColor">
+              Compétences & Technologies{" "}
+            </span>
+          )}
+          {language == "English" && (
+            <span className="fade-in-animation text-[32px] font-semibold text-lightestTertiaryColor">
+              Skills & Technologies{" "}
+            </span>
+          )}
         </h1>
         <div className="h-[1px] w-[300px] bg-lightestPrimaryColor"></div>
       </header>
 
-      <div className="flex">
+      <div className="relative flex">
+        <div
+          className={`absolute ${
+            isDevOpsAndTesting ? "h-[61.797px]" : "h-[44.898px]"
+          } ${isBackend ? "translate-y-[44.898px]" : ""} ${
+            isDevOpsAndTesting ? "translate-y-[90px]" : ""
+          } rounded border-[1px] border-secondaryColor transition duration-300 ease-in-out`}
+        />
         <ul>
           <li
-            className={`skill-items ${
-              isFrontend ? "border-secondaryColor" : ""
-            } `}
+            className={`skill-items ${isFrontend ? "text-secondaryColor" : ""}`}
             onClick={showFrontendSkills}
           >
             Frontend
           </li>
           <li
-            className={`skill-items ${
-              isBackend ? "border-secondaryColor" : ""
-            } `}
+            className={`skill-items ${isBackend ? "text-secondaryColor" : ""}`}
             onClick={showBackEndSkills}
           >
             Backend
           </li>
           <li
             className={`skill-items ${
-              isDevOpsAndTesting ? "border-secondaryColor" : ""
-            } `}
+              isDevOpsAndTesting ? "text-secondaryColor" : ""
+            }`}
             onClick={showDevOpsAndTestingSkills}
           >
             DevOps & Testing
           </li>
         </ul>
 
-        {isFrontend && <FrontendSkills />}
-        {isBackend && <BackendSkills />}
-        {isDevOpsAndTesting && <DevOpsAndTestingSkills />}
+        {isFrontend && <FrontendSkills language={language} />}
+        {isBackend && <BackendSkills language={language} />}
+        {isDevOpsAndTesting && <DevOpsAndTestingSkills language={language} />}
       </div>
     </section>
   );
