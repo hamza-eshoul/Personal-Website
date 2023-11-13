@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import SocialLinks from "./components/SocialLinks";
@@ -10,6 +8,7 @@ import Projects from "./components/Projects";
 import NoteworthyProjects from "./components/NoteworthyProjects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import { useState } from "react";
 
 const App = () => {
   const [language, setLanguage] = useState("French");

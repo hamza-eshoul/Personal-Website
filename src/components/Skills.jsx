@@ -2,8 +2,14 @@ import React, { useState } from "react";
 import FrontendSkills from "./FrontendSkills";
 import BackendSkills from "./BackendSkills";
 import DevOpsAndTestingSkills from "./DevOpsAndTestingSkills";
+import { useInView } from "react-intersection-observer";
 
 const Skills = ({ language }) => {
+  const { ref, inView } = useInView({
+    threshold: 0.6,
+    triggerOnce: true,
+  });
+
   const [isFrontend, setIsFrontend] = useState(true);
   const [isBackend, setIsBackend] = useState(false);
   const [isDevOpsAndTesting, setIsDevOpsAndTesting] = useState(false);
@@ -27,7 +33,13 @@ const Skills = ({ language }) => {
   };
 
   return (
-    <section className="mx-32 pt-72">
+    <section
+      ref={ref}
+      id="skills"
+      className={`${
+        inView ? "fade-appear-animation" : "opacity-0"
+      } mx-32 py-[100px]`}
+    >
       <header className="flex items-center gap-6 pb-10">
         <h1>
           {" "}

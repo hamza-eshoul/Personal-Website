@@ -11,8 +11,9 @@ export default {
         tertiaryColor: "#8892b0",
         lightTertiaryColor: "#a8b2d1",
         lightestTertiaryColor: "#ccd6f6",
+        navbarBgColor: "rgba(10, 25, 47, 0.85)",
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animation-delay")],
 };

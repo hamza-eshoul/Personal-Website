@@ -7,7 +7,7 @@ import {
   SiRedux,
   SiChakraui,
 } from "react-icons/si";
-import { FaReact } from "react-icons/fa";
+import { FaReact, FaVuejs } from "react-icons/fa";
 import { SiTailwindcss } from "react-icons/si";
 import SkillIcon from "./SkillIcon";
 
@@ -51,6 +51,7 @@ const FrontendSkills = ({ language }) => {
             </h2>
           )}
           <div className="my-4 flex w-[500px] flex-wrap justify-center gap-8 rounded bg-lightPrimaryColor p-6 text-justify text-[18px] text-lightTertiaryColor">
+            <SkillIcon skillName={"Vue.js"} skillIcon={<FaVuejs />} />
             <SkillIcon skillName={"TypeScript"} skillIcon={<SiTypescript />} />
             <SkillIcon skillName={"Next.js"} skillIcon={<SiNextdotjs />} />
             <SkillIcon skillName={"Redux"} skillIcon={<SiRedux />} />

@@ -1,16 +1,27 @@
 import { AiOutlineFolder } from "react-icons/ai";
 import { FiGithub } from "react-icons/fi";
 import { PiArrowSquareOut } from "react-icons/pi";
+import { useInView } from "react-intersection-observer";
 
 const NoteworthyProject = ({
   title,
   repoLink,
   previewLink,
-  summary,
+  children,
   technologies,
 }) => {
+  const { ref, inView } = useInView({
+    threshold: 0.6,
+    triggerOnce: true,
+  });
+
   return (
-    <div className="group cursor-pointer rounded bg-lightPrimaryColor p-8">
+    <div
+      ref={ref}
+      className={`${
+        inView ? "fade-appear-animation" : "opacity-0"
+      } group cursor-pointer rounded bg-lightPrimaryColor p-8 transition duration-200 ease-in-out hover:-translate-y-1.5`}
+    >
       <header className="flex items-center justify-between pb-[35px]">
         <AiOutlineFolder className="text-[45px] text-secondaryColor" />
 
@@ -34,7 +45,7 @@ const NoteworthyProject = ({
         {title}
       </h2>
 
-      <p className="text-[17px] text-lightTertiaryColor">{summary}</p>
+      {children}
 
       <ul className="flex gap-3 pt-5 font-mono text-[12px]">
         {technologies &&

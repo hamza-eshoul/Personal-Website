@@ -1,6 +1,17 @@
+import { useInView } from "react-intersection-observer";
+
 const Logo = () => {
+  const { ref, inView } = useInView({
+    threshold: 0.6,
+    triggerOnce: true,
+  });
   return (
-    <div className={`group relative cursor-pointer`}>
+    <div
+      ref={ref}
+      className={`${
+        inView ? "fade-in-animation" : "opacity-0"
+      } group relative cursor-pointer`}
+    >
       <svg
         id="logo"
         xmlns="http://www.w3.org/2000/svg"
