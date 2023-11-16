@@ -13,6 +13,12 @@ export default {
         lightestTertiaryColor: "#ccd6f6",
         navbarBgColor: "rgba(10, 25, 47, 0.85)",
       },
+      screens: {
+        xsm: "465px",
+        xmd: "875px",
+        slg: "1000px",
+        xlg: "1080px",
+      },
     },
   },
   plugins: [require("tailwindcss-animation-delay")],

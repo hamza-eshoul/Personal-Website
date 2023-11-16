@@ -1,28 +1,29 @@
 import { useInView } from "react-intersection-observer";
 
-const Home = ({ language }) => {
+const Hero = ({ language }) => {
   const { ref, inView } = useInView({
     threshold: 0.6,
     triggerOnce: true,
   });
 
   const contactRef = document.querySelector("#contact");
+
   return (
     <section
       ref={ref}
       className={`${inView ? "fade-appear-animation" : "opacity-0"}`}
     >
       {language == "French" && (
-        <div className="fade-in-animation py-[300px] pl-2.5">
+        <div className="fade-in-animation flex h-screen min-h-screen flex-col justify-center pl-2.5">
           <p className="font-mono text-secondaryColor">Bonjour, je suis</p>
-          <p className="-translate-x-1 pt-5 text-[80px] font-semibold text-lightestTertiaryColor">
+          <h2 className="-translate-x-1 pt-5 font-semibold text-lightestTertiaryColor [font-size:_clamp(40px,8vw,80px)]">
             Hamza Eshoul.
-          </p>
-          <p className="-translate-x-1 -translate-y-6  text-[70px] font-semibold">
+          </h2>
+          <h2 className="-translate-x-1 font-semibold leading-[0.9] [font-size:_clamp(40px,8vw,70px)]">
             Je crée des applications pour le web.
-          </p>
+          </h2>
 
-          <p className="w-[540px] -translate-x-1 -translate-y-7 text-[20px] font-normal">
+          <p className="xsm:text-[20px] max-w-[540px] -translate-x-1 py-5 text-[18px] font-normal">
             Je suis un{" "}
             <span className="font-medium text-secondaryColor">
               {" "}
@@ -39,7 +40,7 @@ const Home = ({ language }) => {
             className="group relative mt-6 h-[48px] w-[170px] -translate-x-1"
             onClick={() => contactRef.scrollIntoView({ behavior: "smooth" })}
           >
-            <button className="absolute bottom-0 left-0 right-0 top-0 z-20 rounded border-[1px] border-secondaryColor bg-primaryColor font-mono text-[14px] text-secondaryColor transition-transform duration-300 ease-in-out group-hover:-translate-x-1 group-hover:-translate-y-1">
+            <button className="absolute bottom-0 left-0 right-0 top-0 z-20 w-full rounded border-[1px] border-secondaryColor bg-primaryColor font-mono text-[14px] text-secondaryColor transition-transform duration-300 ease-in-out group-hover:-translate-x-1 group-hover:-translate-y-1">
               Me contacter!
             </button>
             <div className="absolute bottom-0 left-0 right-0 top-0 rounded bg-secondaryColor"></div>
@@ -48,16 +49,16 @@ const Home = ({ language }) => {
       )}
 
       {language == "English" && (
-        <div className="fade-in-animation py-[300px] pl-2.5">
+        <div className="fade-in-animation flex h-screen min-h-screen flex-col justify-center pl-2.5">
           <p className="font-mono text-secondaryColor">Hi, my name is</p>
-          <p className="-translate-x-1 pt-5 text-[80px] font-semibold text-lightestTertiaryColor">
+          <h2 className="-translate-x-1 pt-5 font-semibold text-lightestTertiaryColor [font-size:_clamp(40px,8vw,80px)]">
             Hamza Eshoul.
-          </p>
-          <p className="-translate-x-1 -translate-y-4  text-[80px] font-semibold">
+          </h2>
+          <h2 className="-translate-x-1  font-semibold leading-[0.9] [font-size:_clamp(40px,8vw,80px)]">
             I build things for the web.
-          </p>
+          </h2>
 
-          <p className="w-[540px] -translate-x-1 -translate-y-7 text-[20px] font-normal">
+          <p className="xsm:text-[20px] max-w-[540px]  -translate-x-1 py-5 text-[18px] font-normal">
             I’m a{" "}
             <span className="font-medium text-secondaryColor">
               {" "}
@@ -70,10 +71,10 @@ const Home = ({ language }) => {
           </p>
 
           <div
-            className="group relative mt-6 h-[48px] w-[170px] -translate-x-1"
+            className="group relative mt-6 h-[50px] w-[170px] -translate-x-1"
             onClick={() => contactRef.scrollIntoView({ behavior: "smooth" })}
           >
-            <button className="absolute bottom-0 left-0 right-0 top-0 z-20 rounded border-[1px] border-secondaryColor bg-primaryColor font-mono text-[14px] text-secondaryColor transition-transform duration-300 ease-in-out group-hover:-translate-x-1 group-hover:-translate-y-1">
+            <button className="absolute bottom-0 left-0 right-0 top-0 z-20 w-full rounded border-[1px] border-secondaryColor bg-primaryColor font-mono text-[14px] text-secondaryColor transition-transform duration-300 ease-in-out group-hover:-translate-x-1 group-hover:-translate-y-1">
               Get in touch!
             </button>
             <div className="absolute bottom-0 left-0 right-0 top-0 rounded bg-secondaryColor"></div>
@@ -84,4 +85,4 @@ const Home = ({ language }) => {
   );
 };
 
-export default Home;
+export default Hero;

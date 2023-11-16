@@ -2,60 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  .nav-links {
-    @apply cursor-pointer text-[13px] text-lightestTertiaryColor transition duration-300 ease-in-out hover:text-secondaryColor;
-  }
+/* general styles */
 
-  .social-links {
-    @apply cursor-pointer text-[22px] text-lightTertiaryColor;
-  }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.1;
+}
 
-  .animate-social-links,
-  .animate-skill-icons {
-    @apply transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:text-secondaryColor;
-  }
+.noteworthy-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 15px;
+}
 
-  .email-link {
-    @apply rotate-90 cursor-pointer text-lightTertiaryColor;
-  }
-
-  .animate-email-link {
-    @apply transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:text-secondaryColor;
-  }
-
-  .project-links {
-    @apply cursor-pointer text-[20px] text-lightestTertiaryColor transition duration-300 ease-in-out hover:text-secondaryColor;
-  }
-
-  .noteworthy-project-links {
-    @apply cursor-pointer text-[22px] text-lightTertiaryColor transition duration-300 ease-in-out hover:text-secondaryColor;
-  }
-
-  .skill-items {
-    @apply cursor-pointer border-l-[2px] border-lightestPrimaryColor px-5 py-3.5 font-mono text-[13px] transition duration-300 ease-in-out  hover:bg-lightPrimaryColor hover:text-secondaryColor;
+@media (max-width: 1080px) {
+  .noteworthy-projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
 }
 
-.logo-svg {
-  fill: #0a192f;
-  z-index: 10;
-}
-
-.logo-svg-background {
-  fill: #64ffda;
-}
-
-.logo-svg,
-.logo-svg-background {
-  width: 42px;
-  height: 48px;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-}
+/* fonts configuration */
 
 /* Sans Fonts */
 @font-face {
@@ -120,6 +90,79 @@
   font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", "monospace";
 }
 
+/* tailwind */
+
+@layer components {
+  .nav-links {
+    @apply cursor-pointer text-[13px] text-lightestTertiaryColor transition duration-300 ease-in-out hover:text-secondaryColor;
+  }
+
+  .social-links {
+    @apply cursor-pointer text-[20px] text-lightTertiaryColor;
+  }
+
+  .numberOfHeading {
+    @apply font-mono text-secondaryColor [font-size:_clamp(16px,3vw,20px)];
+  }
+
+  .numbered-headings {
+    @apply font-semibold text-lightestTertiaryColor [font-size:_clamp(26px,5vw,32px)];
+  }
+
+  .numbered-headings-bar {
+    @apply h-[1px] flex-grow bg-lightestPrimaryColor xmd:w-[200px] xmd:grow-0 xlg:w-[300px];
+  }
+
+  .animate-social-links,
+  .animate-skill-icons {
+    @apply transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:text-secondaryColor;
+  }
+
+  .email-link {
+    @apply rotate-90 cursor-pointer text-lightTertiaryColor;
+  }
+
+  .animate-email-link {
+    @apply transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:text-secondaryColor;
+  }
+
+  .project-links {
+    @apply cursor-pointer text-[20px] text-lightestTertiaryColor transition duration-300 ease-in-out hover:text-secondaryColor;
+  }
+
+  .noteworthy-project-links {
+    @apply project-links text-[22px];
+  }
+
+  .skill-items {
+    @apply cursor-pointer border-b-[2px] border-lightestPrimaryColor px-2 py-3.5 font-mono text-[13px] transition duration-300 ease-in-out hover:bg-lightPrimaryColor hover:text-secondaryColor xsm:px-5  xmd:border-b-[0px] xmd:border-l-[2px];
+  }
+}
+
+/* logo svg */
+
+.logo-svg {
+  fill: #0a192f;
+  z-index: 10;
+}
+
+.logo-svg-background {
+  fill: #64ffda;
+}
+
+.logo-svg,
+.logo-svg-background {
+  width: 42px;
+  height: 48px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+/* animations */
+
 .fade-in-animation {
   animation-duration: 0.4s;
   animation-name: fade-in;
@@ -153,6 +196,8 @@
   }
 }
 
+/* navbar animation */
+
 .navbar-fade-appear-animation {
   animation-duration: 0.4s;
   animation-name: navbar-fade-appear;
@@ -169,4 +214,107 @@
     opacity: 1;
     transform: translateY(0px);
   }
+}
+
+.mobileMenu-slidein {
+  animation-duration: 0.4s;
+  animation-name: mobile-menu-slidein;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes mobile-menu-slidein {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.mobileMenu-slideout {
+  animation-duration: 0.4s;
+  animation-name: mobile-menu-slideout;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes mobile-menu-slideout {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+/* hamburger menu animation */
+
+.menuActive .menu-bar1 {
+  opacity: 0;
+  top: 50%;
+
+  transition:
+    top 0.1s ease-out,
+    opacity 0.1s ease-out 0.12s;
+}
+
+.menuActive .menu-bar2 {
+  transform: rotate(225deg);
+  transition: transform 0.22s cubic-bezier(0.215, 0.61, 0.335, 1) 0.12s;
+}
+
+.menuActive .menu-bar3 {
+  bottom: 10px;
+  width: 100%;
+  transform: rotate(315deg);
+  transition:
+    bottom 0.1s ease-out,
+    transform 0.22s cubic-bezier(0.215, 0.61, 0.335, 1) 0.12s;
+}
+
+.menu-bar1 {
+  position: absolute;
+  right: 0px;
+  top: 2px;
+  opacity: 1;
+  height: 2px;
+  width: 120%;
+  border-radius: 4px;
+  transition:
+    top 0.1s ease-in 0.25s,
+    opacity 0.1s ease-in;
+  background-color: #64ffda;
+}
+
+.menu-bar2 {
+  opacity: 1;
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  height: 2px;
+  width: 100%;
+  rotate: 0px;
+  border-radius: px;
+  background-color: #64ffda;
+  transition: transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transform: rotate(0deg);
+}
+
+.menu-bar3 {
+  opacity: 1;
+  position: absolute;
+  right: 0px;
+  bottom: 1px;
+  transform: rotate(0deg);
+  height: 2px;
+  width: 80%;
+  rotate: 0px;
+  border-radius: 4px;
+  transition:
+    bottom 0.1s ease-in 0.25s,
+    transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  background-color: #64ffda;
 }

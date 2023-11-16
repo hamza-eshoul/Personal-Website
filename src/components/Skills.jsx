@@ -1,18 +1,22 @@
-import React, { useState } from "react";
+import { useRef, useState, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+
+// components
 import FrontendSkills from "./FrontendSkills";
 import BackendSkills from "./BackendSkills";
 import DevOpsAndTestingSkills from "./DevOpsAndTestingSkills";
-import { useInView } from "react-intersection-observer";
 
 const Skills = ({ language }) => {
+  const [isFrontend, setIsFrontend] = useState(true);
+  const [isBackend, setIsBackend] = useState(false);
+  const [isDevOpsAndTesting, setIsDevOpsAndTesting] = useState(false);
+  const [skillWidth, setSkillWidth] = useState(0);
+  const skillRef = useRef();
+
   const { ref, inView } = useInView({
     threshold: 0.6,
     triggerOnce: true,
   });
-
-  const [isFrontend, setIsFrontend] = useState(true);
-  const [isBackend, setIsBackend] = useState(false);
-  const [isDevOpsAndTesting, setIsDevOpsAndTesting] = useState(false);
 
   const showFrontendSkills = () => {
     setIsFrontend(true);
@@ -32,51 +36,80 @@ const Skills = ({ language }) => {
     setIsBackend(false);
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      setSkillWidth(skillRef.current.offsetWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <section
       ref={ref}
       id="skills"
       className={`${
         inView ? "fade-appear-animation" : "opacity-0"
-      } mx-32 py-[100px]`}
+      } mx-auto max-w-3xl py-[60px] xsm:py-[80px] xmd:py-[100px]`}
     >
       <header className="flex items-center gap-6 pb-10">
         <h1>
           {" "}
-          <span className="pr-3 font-mono text-[26px] text-secondaryColor">
-            02.{" "}
-          </span>{" "}
+          <span className="numberOfHeading">02. </span>{" "}
           {language == "French" && (
-            <span className="fade-in-animation text-[32px] font-semibold text-lightestTertiaryColor">
+            <span className="fade-in-animation numbered-headings">
               Compétences & Technologies{" "}
             </span>
           )}
           {language == "English" && (
-            <span className="fade-in-animation text-[32px] font-semibold text-lightestTertiaryColor">
+            <span className="fade-in-animation numbered-headings">
               Skills & Technologies{" "}
             </span>
           )}
         </h1>
-        <div className="h-[1px] w-[300px] bg-lightestPrimaryColor"></div>
+        <div className="numbered-headings-bar" />
       </header>
 
-      <div className="relative flex">
+      <div className="relative flex flex-col gap-8 xmd:flex-row xmd:gap-0 ">
         <div
-          className={`absolute ${
+          className={`absolute hidden xmd:block ${
             isDevOpsAndTesting ? "h-[61.797px]" : "h-[44.898px]"
           } ${isBackend ? "translate-y-[44.898px]" : ""} ${
             isDevOpsAndTesting ? "translate-y-[90px]" : ""
           } rounded border-[1px] border-secondaryColor transition duration-300 ease-in-out`}
         />
-        <ul>
+        <div
+          className={`absolute top-[45px] h-[1px] rounded border-[1px] border-secondaryColor transition duration-300 ease-in-out xmd:hidden`}
+          style={{
+            width: `${skillWidth - 1}px`,
+            transform: `${
+              isBackend
+                ? `translateX(${skillWidth}px)`
+                : isDevOpsAndTesting
+                ? `translateX(${skillWidth * 2}px)`
+                : ""
+            }`,
+          }}
+        />
+
+        <ul className="flex w-full flex-row xmd:w-auto xmd:flex-col">
           <li
-            className={`skill-items ${isFrontend ? "text-secondaryColor" : ""}`}
+            ref={skillRef}
+            className={`skill-items ${
+              isFrontend ? "text-secondaryColor" : ""
+            } flex-1 text-center xmd:flex-none xmd:text-start`}
             onClick={showFrontendSkills}
           >
             Frontend
           </li>
           <li
-            className={`skill-items ${isBackend ? "text-secondaryColor" : ""}`}
+            className={`skill-items ${
+              isBackend ? "text-secondaryColor" : ""
+            } flex-1 text-center xmd:flex-none xmd:text-start`}
             onClick={showBackEndSkills}
           >
             Backend
@@ -84,10 +117,11 @@ const Skills = ({ language }) => {
           <li
             className={`skill-items ${
               isDevOpsAndTesting ? "text-secondaryColor" : ""
-            }`}
+            } flex-1 text-center xmd:flex-none xmd:text-start`}
             onClick={showDevOpsAndTestingSkills}
           >
-            DevOps & Testing
+            DevOps
+            <span className="hidden min-[560px]:inline"> & Testing</span>
           </li>
         </ul>
 

@@ -1,51 +1,46 @@
-import mern from "../assets/images/mern.jpg";
 import { useInView } from "react-intersection-observer";
+
+// images
+import mern from "../assets/images/MERN.png";
 
 const AboutMe = ({ language }) => {
   const { ref, inView } = useInView({
-    threshold: 0.9,
+    threshold: 0.5,
     triggerOnce: true,
   });
+
   return (
     <section
       ref={ref}
       id="aboutMe"
       className={`${
         inView ? "fade-appear-animation" : "opacity-0"
-      } mx-16 py-[100px]`}
+      } mx-auto max-w-4xl py-[60px] xsm:py-[80px] xmd:py-[100px]`}
     >
       {language == "French" && (
         <header className="fade-in-animation flex items-center gap-6 pb-10">
           <h1>
             {" "}
-            <span className="font-mono text-[20px] text-secondaryColor">
-              01.{" "}
-            </span>{" "}
-            <span className="text-[32px] font-semibold text-lightestTertiaryColor">
-              À propos de moi{" "}
-            </span>
+            <span className="numberOfHeading ">01. </span>{" "}
+            <span className="numbered-headings">À propos de moi </span>
           </h1>
-          <div className="h-[1px] w-[300px] bg-lightestPrimaryColor"></div>
+          <div className="numbered-headings-bar" />
         </header>
       )}
       {language == "English" && (
         <header className="fade-in-animation flex items-center gap-6 pb-10">
           <h1>
             {" "}
-            <span className="font-mono text-[20px] text-secondaryColor">
-              01.{" "}
-            </span>{" "}
-            <span className="text-[32px] font-semibold text-lightestTertiaryColor">
-              About Me{" "}
-            </span>
+            <span className="numberOfHeading">01. </span>{" "}
+            <span className="numbered-headings">About Me </span>
           </h1>
-          <div className="h-[1px] w-[300px] bg-lightestPrimaryColor"></div>
+          <div className="numbered-headings-bar" />
         </header>
       )}
 
-      <div className="flex gap-14 font-medium">
+      <div className="flex flex-col items-center gap-14 font-medium xmd:flex-row xmd:items-start">
         {language == "French" && (
-          <section className="fade-in-animation w-1/2 text-justify text-[20px] font-normal leading-7">
+          <section className="fade-in-animation text-justify text-[20px] font-normal leading-7 xmd:basis-3/5">
             <p>
               J'ai appris le développement Web à travers{" "}
               <a
@@ -94,7 +89,7 @@ const AboutMe = ({ language }) => {
         )}
 
         {language == "English" && (
-          <section className="fade-in-animation w-1/2 text-justify text-[20px] font-normal leading-7">
+          <section className="fade-in-animation text-justify text-[20px] font-normal leading-7 xmd:basis-3/5">
             <p>
               I learned web development with the{" "}
               <a
@@ -139,26 +134,26 @@ const AboutMe = ({ language }) => {
           </section>
         )}
 
-        <div className="group relative h-[300px] w-[300px] cursor-pointer transition duration-300 ease-in-out ">
-          <div className="relative z-[1] block h-full w-full rounded-md bg-secondaryColor transition  duration-300 ease-in-out before:absolute before:inset-0 before:z-[3] before:h-full before:w-full before:rounded-md before:bg-primaryColor before:mix-blend-screen before:content-[''] group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:bg-inherit group-hover:before:hidden">
+        <div className="group relative max-w-[300px] cursor-pointer transition duration-300 ease-in-out xmd:basis-2/5 ">
+          <div className="relative z-[1] block aspect-square w-full rounded-md bg-secondaryColor transition  duration-300 ease-in-out before:absolute before:inset-0 before:z-[3] before:h-full before:w-full before:rounded-md before:bg-primaryColor before:mix-blend-screen before:content-[''] group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:bg-inherit group-hover:before:hidden">
             <div
-              className="constrast-100 h-full  rounded-md mix-blend-multiply brightness-90 grayscale 
+              className="constrast-100 rounded-md mix-blend-multiply brightness-90 grayscale 
            transition duration-0 group-hover:brightness-100 group-hover:grayscale-0
            "
             >
-              <div className="block h-full">
+              <div className="block">
                 <img
-                  className="static bottom-0 left-0 right-0 top-0 block h-full w-full rounded-md"
+                  className=" static bottom-0 left-0 right-0 top-0 block aspect-square w-full rounded-md"
                   src={mern}
                 />
               </div>
               <img
                 src={mern}
-                className="absolute bottom-0 left-0 right-0 top-0 h-full w-full rounded-md"
+                className="absolute bottom-0 left-0 right-0 top-0 aspect-square w-full rounded-md"
               />
             </div>
           </div>
-          <div className="absolute bottom-0 left-0 right-0 top-0 z-0 translate-x-4 translate-y-4 rounded border-[2px] border-secondaryColor transition duration-300 ease-in-out group-hover:translate-x-5 group-hover:translate-y-5" />
+          <div className="absolute bottom-0 left-0 right-0 top-0 z-0 aspect-square translate-x-4 translate-y-4 rounded border-[2px] border-secondaryColor transition duration-300 ease-in-out group-hover:translate-x-5 group-hover:translate-y-5" />
         </div>
       </div>
     </section>

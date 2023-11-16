@@ -1,7 +1,9 @@
+import { useInView } from "react-intersection-observer";
+
+// icons
 import { AiOutlineFolder } from "react-icons/ai";
 import { FiGithub } from "react-icons/fi";
 import { PiArrowSquareOut } from "react-icons/pi";
-import { useInView } from "react-intersection-observer";
 
 const NoteworthyProject = ({
   title,
@@ -16,7 +18,9 @@ const NoteworthyProject = ({
   });
 
   return (
-    <div
+    <a
+      target="_blank"
+      href={previewLink ? previewLink : repoLink}
       ref={ref}
       className={`${
         inView ? "fade-appear-animation" : "opacity-0"
@@ -47,11 +51,11 @@ const NoteworthyProject = ({
 
       {children}
 
-      <ul className="flex gap-3 pt-5 font-mono text-[12px]">
+      <ul className="flex w-full flex-wrap gap-3 pt-5 font-mono text-[12px]">
         {technologies &&
           technologies.map((technology) => <li> {technology}</li>)}
       </ul>
-    </div>
+    </a>
   );
 };
 

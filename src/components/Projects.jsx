@@ -1,45 +1,210 @@
-import Project from "./Project";
+import { useInView } from "react-intersection-observer";
+
+// icons
+import { RiFolderInfoLine } from "react-icons/ri";
+
+// images
 import odinBook from "../assets/images/odinBook.png";
 import messagingApp from "../assets/images/messagingApp.png";
 import instagramClone from "../assets/images/instagramClone.png";
 import odinBlog from "../assets/images/odinBlog.png";
 import shoppingCart from "../assets/images/shoppingCart.png";
-import { RiFolderInfoLine } from "react-icons/ri";
-import { useInView } from "react-intersection-observer";
+
+// components
+import Project from "./Project";
+
+const projects_list = [
+  {
+    isReverse: false,
+    image: odinBook,
+    title: "Odin Book",
+    repoLink: "https://github.com/hamza-eshoul/Odin-Book",
+    previewLink: "https://odin-book-project.onrender.com/",
+    technologies: [
+      "React",
+      "Tailwind CSS",
+      "Express.js",
+      "MongoDB",
+      "Cloudinary",
+    ],
+    frenchDescriptionTemplate: (
+      <div className="fade-in-animation">
+        Une{" "}
+        <span className="text-secondaryColor">
+          {" "}
+          application de médias sociaux{" "}
+        </span>{" "}
+        qui implémente les principales fonctionnalités des plateformes de médias
+        sociaux. Les fonctionnalités clés incluent l'ajout d'amis, la création
+        et la personnalisation des profils d'utilisateurs ainsi que la
+        publication de posts, de photos et de commentaires.
+      </div>
+    ),
+    englishDescriptionTemplate: (
+      <div className="fade-in-animation">
+        A{" "}
+        <span className="text-secondaryColor"> social media application </span>{" "}
+        that implements the core features of social medias platforms. Key
+        features include adding friends as well as creating and editing
+        accounts, posts, photos and comments.
+      </div>
+    ),
+  },
+  {
+    isReverse: true,
+    image: messagingApp,
+    title: "Messaging App",
+    repoLink: "https://github.com/hamza-eshoul/Messaging-App",
+    previewLink: "https://messaging-app-project.onrender.com",
+    technologies: [
+      "React",
+      "Tailwind CSS",
+      "Express.js",
+      "MongoDB",
+      "Socket.IO",
+    ],
+    frenchDescriptionTemplate: (
+      <div className="fade-in-animation">
+        Une{" "}
+        <span className="text-secondaryColor">
+          {" "}
+          application web de messagerie{" "}
+        </span>{" "}
+        qui permet aux utilisateurs d'envoyer et de recevoir des messages en
+        temps réel à l'aide de sockets web implémentés à travers la bibliothèque
+        Socket.IO.
+      </div>
+    ),
+    englishDescriptionTemplate: (
+      <div className="fade-in-animation">
+        A{" "}
+        <span className="text-secondaryColor"> messaging web application </span>{" "}
+        that allows users to send and receive real-time messages utilizing web
+        sockets implemented through the Socket.IO library.
+      </div>
+    ),
+  },
+  {
+    isReverse: false,
+    image: instagramClone,
+    title: "Instagram Clone",
+    repoLink: "https://github.com/hamza-eshoul/Instagram-Clone",
+    previewLink: "https://skynter-instagram-clone.onrender.com/",
+    technologies: ["React", "Tailwind CSS", "Firestore", "Firebase Storage"],
+    frenchDescriptionTemplate: (
+      <div className="fade-in-animation">
+        Un
+        <span className="text-secondaryColor">
+          {" "}
+          clone full stack d'Instagram{" "}
+        </span>
+        qui implémente les principales fonctionnalités de la plateforme de
+        médias sociaux. Les fonctionnalités clés incluent l'authentification, la
+        création et la suppression de publications ainsi qu'une interface de
+        recherche d'utilisateurs en temps réel.
+      </div>
+    ),
+    englishDescriptionTemplate: (
+      <div className="fade-in-animation">
+        A
+        <span className="text-secondaryColor">
+          {" "}
+          full stack clone of Instagram{" "}
+        </span>
+        that implements the core features of the social media platform. Key
+        features include authentication, creating and deleting posts as well as
+        a realtime search interface.
+      </div>
+    ),
+  },
+  {
+    isReverse: true,
+    image: odinBlog,
+    title: "Odin Blog",
+    repoLink: "https://github.com/hamza-eshoul/Blog-API",
+    previewLink: "https://odin-blog-project.onrender.com/",
+    technologies: ["React", "Tailwind CSS", "Express.js", "MongoDB"],
+    frenchDescriptionTemplate: (
+      <div className="fade-in-animation">
+        Un
+        <span className="text-secondaryColor"> blog fonctionnel </span>{" "}
+        permettant aux utilisateurs de s'authentiifer, lire des articles et
+        ajouter des commentaires. La partie frontend du blog est alimentée par
+        une API RESTFul créé à travers Express.js et MongoDB.
+      </div>
+    ),
+    englishDescriptionTemplate: (
+      <div className="fade-in-animation">
+        A <span className="text-secondaryColor"> fully featured blog </span>{" "}
+        that allows users to authenticate, read blog posts and add post
+        comments. The blog client is powered by a RESTFul blog API built with
+        Express.js and mongoDB.
+      </div>
+    ),
+  },
+  {
+    isReverse: false,
+    image: shoppingCart,
+    title: "Shopping Cart",
+    repoLink: "https://github.com/hamza-eshoul/Shopping-Cart-Project-Vite",
+    previewLink: "https://thunder-computation.onrender.com/",
+    technologies: ["React", "Tailwind CSS"],
+    frenchDescriptionTemplate: (
+      <div className="fade-in-animation">
+        Un
+        <span className="text-secondaryColor">
+          {" "}
+          site de vente en ligne d'ordinateurs{" "}
+        </span>
+        créé à travers React pour réfleter, en temps réel, les modifications
+        résultant des interactions des utilisateurs. Le site permet aux
+        utilisateurs de parcourir, ajouter et supprimer des articles de leur
+        panier
+      </div>
+    ),
+    englishDescriptionTemplate: (
+      <div className="fade-in-animation">
+        A<span className="text-secondaryColor"> computers store </span>
+        built with React to reflect real-time updates restulting from user
+        interactions. The store allows users to browse, add and remove items
+        from their cart.
+      </div>
+    ),
+  },
+];
 
 const Projects = ({ language }) => {
   const { ref, inView } = useInView({
     threshold: 0.6,
     triggerOnce: true,
   });
+
   return (
-    <section id="projects" className="pt-[100px]">
+    <section id="projects" className="pt-[60px] xsm:pt-[80px] xmd:pt-[100px]">
       <section
         ref={ref}
         className={`${inView ? "fade-appear-animation" : "opacity-0"}`}
       >
-        <header className="flex items-center gap-6 pb-4">
+        <header className="flex items-center gap-5 pb-4">
           <h1>
             {" "}
-            <span className="pr-3 font-mono text-[26px] text-secondaryColor">
-              03.{" "}
-            </span>{" "}
+            <span className="numberOfHeading">03. </span>{" "}
             {language == "French" && (
-              <span className="fade-in-animation text-[32px] font-semibold text-lightestTertiaryColor">
+              <span className="fade-in-animation numbered-headings">
                 Projets{" "}
               </span>
             )}
             {language == "English" && (
-              <span className="fade-in-animation text-[32px] font-semibold text-lightestTertiaryColor">
+              <span className="fade-in-animation numbered-headings">
                 Projects{" "}
               </span>
             )}
           </h1>
-          <div className="h-[1px] w-[300px] bg-lightestPrimaryColor"></div>
+          <div className="numbered-headings-bar" />
         </header>
 
         {language == "French" && (
-          <div className="fade-in-animation flex items-center gap-2 pb-10">
+          <div className="fade-in-animation flex flex-col items-center gap-2 pb-10 xsm:flex-row">
             <div>
               <RiFolderInfoLine className="text-[50px] text-secondaryColor" />
             </div>
@@ -74,7 +239,7 @@ const Projects = ({ language }) => {
         )}
 
         {language == "English" && (
-          <div className="fade-in-animation flex items-center gap-2 pb-10">
+          <div className="fade-in-animation flex flex-col items-center gap-2 pb-10 xsm:flex-row">
             <div>
               <RiFolderInfoLine className="text-[50px] text-secondaryColor" />
             </div>
@@ -109,188 +274,21 @@ const Projects = ({ language }) => {
       </section>
 
       <section>
-        <Project
-          language={language}
-          image={odinBook}
-          title={"Odin Book"}
-          repoLink={"https://github.com/hamza-eshoul/Odin-Book"}
-          previewLink={"https://odin-book-project.onrender.com/"}
-          technologies={[
-            "React",
-            "Tailwind CSS",
-            "Express.js",
-            "MongoDB",
-            "Cloudinary",
-          ]}
-        >
-          {language == "French" && (
-            <div className="fade-in-animation">
-              Une{" "}
-              <span className="text-secondaryColor">
-                {" "}
-                application de médias sociaux{" "}
-              </span>{" "}
-              qui implémente les principales fonctionnalités des plateformes de
-              médias sociaux. Les fonctionnalités clés incluent l'ajout d'amis,
-              la création et la personnalisation des profils d'utilisateurs
-              ainsi que la publication de posts, de photos et de commentaires.
-            </div>
-          )}
-          {language == "English" && (
-            <div className="fade-in-animation">
-              A{" "}
-              <span className="text-secondaryColor">
-                {" "}
-                social media application{" "}
-              </span>{" "}
-              that implements the core features of social medias platforms. Key
-              features include adding friends as well as creating and editing
-              accounts, posts, photos and comments.
-            </div>
-          )}
-        </Project>
-        <Project
-          isReverse={true}
-          language={language}
-          image={messagingApp}
-          title={"Messaging App"}
-          repoLink={"https://github.com/hamza-eshoul/Messaging-App"}
-          previewLink={"https://messaging-app-project.onrender.com"}
-          technologies={[
-            "React",
-            "Tailwind CSS",
-            "Express.js",
-            "MongoDB",
-            "Socket.IO",
-          ]}
-        >
-          {language == "French" && (
-            <div className="fade-in-animation">
-              Une{" "}
-              <span className="text-secondaryColor">
-                {" "}
-                application web de messagerie{" "}
-              </span>{" "}
-              qui permet aux utilisateurs d'envoyer et de recevoir des messages
-              en temps réel à l'aide de sockets web implémentés à travers la
-              bibliothèque Socket.IO.
-            </div>
-          )}
-          {language == "English" && (
-            <div className="fade-in-animation">
-              A{" "}
-              <span className="text-secondaryColor">
-                {" "}
-                messaging web application{" "}
-              </span>{" "}
-              that allows users to send and receive real-time messages utilizing
-              web sockets implemented through the Socket.IO library.
-            </div>
-          )}
-        </Project>
-        <Project
-          language={language}
-          image={instagramClone}
-          title={"Instagram Clone"}
-          repoLink={"https://github.com/hamza-eshoul/Instagram-Clone"}
-          previewLink={"https://skynter-instagram-clone.onrender.com/"}
-          technologies={[
-            "React",
-            "Tailwind CSS",
-            "Firestore",
-            "Firebase Storage",
-          ]}
-        >
-          {language == "French" && (
-            <div className="fade-in-animation">
-              Un
-              <span className="text-secondaryColor">
-                {" "}
-                clone full stack d'Instagram{" "}
-              </span>
-              qui implémente les principales fonctionnalités de la plateforme de
-              médias sociaux. Les fonctionnalités clés incluent
-              l'authentification, la création et la suppression de publications
-              ainsi qu'une interface de recherche d'utilisateurs en temps réel.
-            </div>
-          )}
-          {language == "English" && (
-            <div className="fade-in-animation">
-              A
-              <span className="text-secondaryColor">
-                {" "}
-                full stack clone of Instagram{" "}
-              </span>
-              that implements the core features of the social media platform.
-              Key features include authentication, creating and deleting posts
-              as well as a realtime search interface.
-            </div>
-          )}
-        </Project>
-        <Project
-          isReverse={true}
-          language={language}
-          image={odinBlog}
-          title={"Odin Blog"}
-          repoLink={"https://github.com/hamza-eshoul/Blog-API"}
-          previewLink={"https://odin-blog-project.onrender.com/"}
-          technologies={["React", "Tailwind CSS", "Express.js", "MongoDB"]}
-        >
-          {language == "French" && (
-            <div className="fade-in-animation">
-              Un
-              <span className="text-secondaryColor">
-                {" "}
-                blog fonctionnel{" "}
-              </span>{" "}
-              permettant aux utilisateurs de s'authentiifer, lire des articles
-              et ajouter des commentaires. La partie frontend du blog est
-              alimentée par une API RESTFul créé à travers Express.js et
-              MongoDB.
-            </div>
-          )}
-          {language == "English" && (
-            <div className="fade-in-animation">
-              A{" "}
-              <span className="text-secondaryColor"> fully featured blog </span>{" "}
-              that allows users to authenticate, read blog posts and add post
-              comments. The blog client is powered by a RESTFul blog API built
-              with Express.js and mongoDB.
-            </div>
-          )}
-        </Project>
-        <Project
-          language={language}
-          image={shoppingCart}
-          title={"Shopping Cart"}
-          repoLink={
-            "https://github.com/hamza-eshoul/Shopping-Cart-Project-Vite"
-          }
-          previewLink={"https://thunder-computation.onrender.com/"}
-          technologies={["React", "Tailwind CSS"]}
-        >
-          {language == "French" && (
-            <div className="fade-in-animation">
-              Un
-              <span className="text-secondaryColor">
-                {" "}
-                site de vente en ligne d'ordinateurs{" "}
-              </span>
-              créé à travers React pour réfleter, en temps réel, les
-              modifications résultant des interactions des utilisateurs. Le site
-              permet aux utilisateurs de parcourir, ajouter et supprimer des
-              articles de leur panier
-            </div>
-          )}
-          {language == "English" && (
-            <div className="fade-in-animation">
-              A<span className="text-secondaryColor"> computers store </span>
-              built with React to reflect real-time updates restulting from user
-              interactions. The store allows users to browse, add and remove
-              items from their cart.
-            </div>
-          )}
-        </Project>
+        {projects_list.map((project) => (
+          <Project
+            isReverse={project.isReverse}
+            language={language}
+            image={project.image}
+            title={project.title}
+            repoLink={project.repoLink}
+            previewLink={project.previewLink}
+            technologies={project.technologies}
+          >
+            {language == "French" && project.frenchDescriptionTemplate}
+
+            {language == "English" && project.englishDescriptionTemplate}
+          </Project>
+        ))}
       </section>
     </section>
   );
