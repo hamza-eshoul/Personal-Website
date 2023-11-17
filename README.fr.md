@@ -8,7 +8,7 @@ L'objectif du projet est de présenter les différents travaux et projets sur le
 
 La conception du projet a été inspirée par la conception du site portfolio réalisé par Britanny Chiang : https://github.com/bchiang7/v4
 
-- Lien du projet - https://hamzaeshoul.onrender.com/
+- Lien du projet - https://hamzaeshoul.com/
 
 ## Page d'accueil
 

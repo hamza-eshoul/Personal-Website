@@ -8,7 +8,7 @@ The goal of the project was to showcase the various works and projects that I wo
 
 The project's designed was inspired by the design of the personal portfolio website made by Britanny Chiang : https://github.com/bchiang7/v4
 
-- Project's Live Preview url - https://hamzaeshoul.onrender.com/
+- Project's Live Preview url - https://hamzaeshoul.com/
 
 ## Homepage
 
