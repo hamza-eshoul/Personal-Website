@@ -19,21 +19,21 @@ const AboutMe = ({ language }) => {
     >
       {language == "French" && (
         <header className="fade-in-animation flex items-center gap-6 pb-10">
-          <h1>
+          <h2>
             {" "}
             <span className="numberOfHeading ">01. </span>{" "}
             <span className="numbered-headings">À propos de moi </span>
-          </h1>
+          </h2>
           <div className="numbered-headings-bar" />
         </header>
       )}
       {language == "English" && (
         <header className="fade-in-animation flex items-center gap-6 pb-10">
-          <h1>
+          <h2>
             {" "}
             <span className="numberOfHeading">01. </span>{" "}
             <span className="numbered-headings">About Me </span>
-          </h1>
+          </h2>
           <div className="numbered-headings-bar" />
         </header>
       )}

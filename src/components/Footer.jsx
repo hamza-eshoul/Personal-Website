@@ -1,6 +1,6 @@
 const Footer = ({ language }) => {
   return (
-    <>
+    <footer>
       {language == "French" && (
         <div className="fade-in-animation flex flex-col items-center justify-center gap-2 pb-10 pt-48 font-mono text-[12px]">
           {" "}
@@ -39,7 +39,7 @@ const Footer = ({ language }) => {
           </a>{" "}
         </div>
       )}
-    </>
+    </footer>
   );
 };
 

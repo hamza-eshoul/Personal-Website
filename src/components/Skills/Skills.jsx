@@ -57,7 +57,7 @@ const Skills = ({ language }) => {
       } mx-auto max-w-3xl py-[60px] xsm:py-[80px] xmd:py-[100px]`}
     >
       <header className="flex items-center gap-6 pb-10">
-        <h1>
+        <h2>
           {" "}
           <span className="numberOfHeading">02. </span>{" "}
           {language == "French" && (
@@ -70,7 +70,7 @@ const Skills = ({ language }) => {
               Skills & Technologies{" "}
             </span>
           )}
-        </h1>
+        </h2>
         <div className="numbered-headings-bar" />
       </header>
 

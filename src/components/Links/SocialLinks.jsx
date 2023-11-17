@@ -2,7 +2,7 @@ import { useInView } from "react-intersection-observer";
 
 // icons
 import { FiGithub } from "react-icons/fi";
-import { FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 import { FiTwitter, FiLinkedin } from "react-icons/fi";
 
 const social_links_icons = [
@@ -12,15 +12,15 @@ const social_links_icons = [
   },
   {
     icon: <FaInstagram />,
-    link: "",
+    link: "1",
   },
   {
     icon: <FiTwitter />,
-    link: "",
+    link: "2",
   },
   {
     icon: <FiLinkedin />,
-    link: "",
+    link: "3",
   },
 ];
 
@@ -39,7 +39,7 @@ const SocialLinks = () => {
     >
       <ul className="flex flex-col items-center gap-5">
         {social_links_icons.map((social) => (
-          <li className="social-links animate-social-links">
+          <li className="social-links animate-social-links" key={social.link}>
             <a href={social.link} target="_blank">
               {" "}
               {social.icon}

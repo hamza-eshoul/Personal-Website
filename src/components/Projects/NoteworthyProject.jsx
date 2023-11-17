@@ -45,15 +45,17 @@ const NoteworthyProject = ({
         </ul>
       </header>
 
-      <h2 className="pb-2.5 text-[22px] font-semibold text-lightestTertiaryColor hover:text-secondaryColor group-hover:text-secondaryColor">
+      <h3 className="pb-2.5 text-[22px] font-semibold text-lightestTertiaryColor hover:text-secondaryColor group-hover:text-secondaryColor">
         {title}
-      </h2>
+      </h3>
 
       {children}
 
       <ul className="flex w-full flex-wrap gap-3 pt-5 font-mono text-[12px]">
         {technologies &&
-          technologies.map((technology) => <li> {technology}</li>)}
+          technologies.map((technology) => (
+            <li key={technology}> {technology}</li>
+          ))}
       </ul>
     </a>
   );

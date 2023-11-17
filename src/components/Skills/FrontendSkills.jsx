@@ -62,44 +62,52 @@ const complementary_skills = [
 
 const FrontendSkills = ({ language }) => {
   return (
-    <div className="fade-in-animation flex w-full flex-col items-center gap-2">
-      <div className="xsm:w-[90%]">
+    <section className="fade-in-animation flex w-full flex-col items-center gap-2">
+      <article className="xsm:w-[90%]">
         {language == "French" && (
-          <h2 className="fade-in-animation text-center font-mono text-[14px] text-secondaryColor">
+          <h3 className="fade-in-animation text-center font-mono text-[14px] text-secondaryColor">
             Technologies Principales
-          </h2>
+          </h3>
         )}
         {language == "English" && (
-          <h2 className="fade-in-animation text-center font-mono text-[14px] text-secondaryColor">
+          <h3 className="fade-in-animation text-center font-mono text-[14px] text-secondaryColor">
             Main Technologies
-          </h2>
+          </h3>
         )}
 
         <div className="my-4 flex flex-wrap justify-center gap-5 rounded bg-lightPrimaryColor px-3 py-6 text-justify text-[18px] text-lightTertiaryColor  xsm:gap-6 xmd:gap-8 xlg:px-6">
           {main_skills.map((skill) => (
-            <SkillIcon skillName={skill.name} skillIcon={skill.icon} />
+            <SkillIcon
+              key={skill.name}
+              skillName={skill.name}
+              skillIcon={skill.icon}
+            />
           ))}
         </div>
-      </div>
-      <div className="xsm:w-[90%]">
+      </article>
+      <article className="xsm:w-[90%]">
         {" "}
         {language == "French" && (
-          <h2 className="fade-in-animation text-center font-mono text-[14px] text-secondaryColor">
+          <h3 className="fade-in-animation text-center font-mono text-[14px] text-secondaryColor">
             Technologies Complémentaires
-          </h2>
+          </h3>
         )}
         {language == "English" && (
-          <h2 className="fade-in-animation text-center font-mono text-[14px] text-secondaryColor">
+          <h3 className="fade-in-animation text-center font-mono text-[14px] text-secondaryColor">
             Complementary Technologies
-          </h2>
+          </h3>
         )}
         <div className="my-4 flex flex-wrap justify-center  gap-5 rounded bg-lightPrimaryColor px-3 py-6 text-justify text-[18px] text-lightTertiaryColor xsm:gap-6 xmd:gap-8  xlg:px-6">
           {complementary_skills.map((skill) => (
-            <SkillIcon skillName={skill.name} skillIcon={skill.icon} />
+            <SkillIcon
+              key={skill.name}
+              skillName={skill.name}
+              skillIcon={skill.icon}
+            />
           ))}
         </div>
-      </div>
-    </div>
+      </article>
+    </section>
   );
 };
 

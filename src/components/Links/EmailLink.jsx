@@ -5,6 +5,7 @@ const EmailLink = () => {
     threshold: 0.6,
     triggerOnce: true,
   });
+
   return (
     <div
       ref={ref}

@@ -11,10 +11,10 @@ const Contact = ({ language }) => {
       id="contact"
       className={`${
         inView ? "fade-appear-animation" : "opacity-0"
-      } xsm:py-[80px] mx-auto flex max-w-2xl flex-col items-center justify-center py-[60px] xmd:py-[100px]`}
+      } mx-auto flex max-w-2xl flex-col items-center justify-center py-[60px] xsm:py-[80px] xmd:py-[100px]`}
     >
       <header className="flex items-center gap-6">
-        <h1 className="py-5">
+        <h2 className="py-5">
           {" "}
           <span className="pr-3 font-mono text-[14px] text-secondaryColor">
             04.{" "}
@@ -29,30 +29,30 @@ const Contact = ({ language }) => {
               What's Next?
             </span>
           )}
-        </h1>
+        </h2>
       </header>
 
       {language == "French" && (
-        <h2 className="fade-in-animation pb-2.5 font-semibold text-lightestTertiaryColor [font-size:_clamp(40px,5vw,60px)]">
+        <h3 className="fade-in-animation pb-2.5 font-semibold text-lightestTertiaryColor [font-size:_clamp(40px,5vw,60px)]">
           Me contacter
-        </h2>
+        </h3>
       )}
 
       {language == "English" && (
-        <h2 className="fade-in-animation pb-2.5 font-semibold text-lightestTertiaryColor [font-size:_clamp(40px,5vw,60px)]">
+        <h3 className="fade-in-animation pb-2.5 font-semibold text-lightestTertiaryColor [font-size:_clamp(40px,5vw,60px)]">
           Get In Touch
-        </h2>
+        </h3>
       )}
 
       {language == "French" && (
-        <p className="fade-in-animation xsm:text-[20px] max-w-[550px] pb-2 text-center text-[18px]">
+        <p className="fade-in-animation max-w-[550px] pb-2 text-center text-[18px] xsm:text-[20px]">
           N'hésitez pas à me contacter si vous avez une question ou souhaitez
           travailler ensemble. Je serai heureux de vous répondre !
         </p>
       )}
 
       {language == "English" && (
-        <p className="fade-in-animation xsm:text-[20px] max-w-[500px] pb-2 text-center text-[18px]">
+        <p className="fade-in-animation max-w-[500px] pb-2 text-center text-[18px] xsm:text-[20px]">
           Feel free to contact me if you have a question or want to work
           together. I will be happy to get back to you !
         </p>

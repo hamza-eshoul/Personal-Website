@@ -34,14 +34,14 @@ const Project = ({
           <div className="relative flex h-full w-1/2 flex-col gap-5 xl:pt-10">
             <div className="flex flex-col gap-2">
               {language == "French" && (
-                <h2 className="fade-in-animation font-mono text-[13px] text-secondaryColor">
+                <h3 className="fade-in-animation font-mono text-[13px] text-secondaryColor">
                   Projet Fonctionnel
-                </h2>
+                </h3>
               )}
               {language == "English" && (
-                <h2 className="fade-in-animation font-mono text-[13px] text-secondaryColor">
+                <h3 className="fade-in-animation font-mono text-[13px] text-secondaryColor">
                   Featured Project
-                </h2>
+                </h3>
               )}
 
               <a
@@ -59,7 +59,9 @@ const Project = ({
 
             <ul className="z-10 flex w-full flex-wrap justify-start gap-3 pt-2 font-mono text-[13px] text-lightTertiaryColor">
               {technologies &&
-                technologies.map((technology) => <li>{technology}</li>)}
+                technologies.map((technology) => (
+                  <li key={technology}>{technology}</li>
+                ))}
             </ul>
 
             <ul className="flex gap-3">
@@ -118,7 +120,7 @@ const Project = ({
           inView ? "fade-appear-animation" : "opacity-0"
         } relative hidden pb-[100px] xmd:block`}
       >
-        <div className="slg:py-0 group relative w-[57%] cursor-pointer xmd:py-10">
+        <div className="group relative w-[57%] cursor-pointer xmd:py-10 slg:py-0">
           <a
             href={previewLink}
             target="_blank"
@@ -146,14 +148,14 @@ const Project = ({
         <div className="absolute right-0 top-0 z-10 flex w-1/2 flex-col items-end gap-5 xl:pt-10">
           <div className="flex flex-col items-end gap-2">
             {language == "French" && (
-              <h2 className="fade-in-animation font-mono text-[13px] text-secondaryColor">
+              <h3 className="fade-in-animation font-mono text-[13px] text-secondaryColor">
                 Projet Fonctionnel
-              </h2>
+              </h3>
             )}
             {language == "English" && (
-              <h2 className="fade-in-animation font-mono text-[13px] text-secondaryColor">
+              <h3 className="fade-in-animation font-mono text-[13px] text-secondaryColor">
                 Featured Project
-              </h2>
+              </h3>
             )}
             <a
               href="#"
@@ -170,7 +172,9 @@ const Project = ({
 
           <ul className="z-20 flex w-full flex-wrap justify-end gap-5 pt-2 font-mono text-[13px] text-lightTertiaryColor">
             {technologies &&
-              technologies.map((technology) => <li>{technology}</li>)}
+              technologies.map((technology) => (
+                <li key={technology}>{technology}</li>
+              ))}
           </ul>
 
           <ul className="flex gap-3">

@@ -4,11 +4,11 @@ import { useInView } from "react-intersection-observer";
 import { RiFolderInfoLine } from "react-icons/ri";
 
 // images
-import odinBook from "../assets/images/odinBook.png";
-import messagingApp from "../assets/images/messagingApp.png";
-import instagramClone from "../assets/images/instagramClone.png";
-import odinBlog from "../assets/images/odinBlog.png";
-import shoppingCart from "../assets/images/shoppingCart.png";
+import odinBook from "../../assets/images/odinBook.png";
+import messagingApp from "../../assets/images/messagingApp.png";
+import instagramClone from "../../assets/images/instagramClone.png";
+import odinBlog from "../../assets/images/odinBlog.png";
+import shoppingCart from "../../assets/images/shoppingCart.png";
 
 // components
 import Project from "./Project";
@@ -28,7 +28,7 @@ const projects_list = [
       "Cloudinary",
     ],
     frenchDescriptionTemplate: (
-      <div className="fade-in-animation">
+      <p className="fade-in-animation">
         Une{" "}
         <span className="text-secondaryColor">
           {" "}
@@ -38,16 +38,16 @@ const projects_list = [
         sociaux. Les fonctionnalités clés incluent l'ajout d'amis, la création
         et la personnalisation des profils d'utilisateurs ainsi que la
         publication de posts, de photos et de commentaires.
-      </div>
+      </p>
     ),
     englishDescriptionTemplate: (
-      <div className="fade-in-animation">
+      <p className="fade-in-animation">
         A{" "}
         <span className="text-secondaryColor"> social media application </span>{" "}
         that implements the core features of social medias platforms. Key
         features include adding friends as well as creating and editing
         accounts, posts, photos and comments.
-      </div>
+      </p>
     ),
   },
   {
@@ -64,7 +64,7 @@ const projects_list = [
       "Socket.IO",
     ],
     frenchDescriptionTemplate: (
-      <div className="fade-in-animation">
+      <p className="fade-in-animation">
         Une{" "}
         <span className="text-secondaryColor">
           {" "}
@@ -73,15 +73,15 @@ const projects_list = [
         qui permet aux utilisateurs d'envoyer et de recevoir des messages en
         temps réel à l'aide de sockets web implémentés à travers la bibliothèque
         Socket.IO.
-      </div>
+      </p>
     ),
     englishDescriptionTemplate: (
-      <div className="fade-in-animation">
+      <p className="fade-in-animation">
         A{" "}
         <span className="text-secondaryColor"> messaging web application </span>{" "}
         that allows users to send and receive real-time messages utilizing web
         sockets implemented through the Socket.IO library.
-      </div>
+      </p>
     ),
   },
   {
@@ -92,7 +92,7 @@ const projects_list = [
     previewLink: "https://skynter-instagram-clone.onrender.com/",
     technologies: ["React", "Tailwind CSS", "Firestore", "Firebase Storage"],
     frenchDescriptionTemplate: (
-      <div className="fade-in-animation">
+      <p className="fade-in-animation">
         Un
         <span className="text-secondaryColor">
           {" "}
@@ -102,10 +102,10 @@ const projects_list = [
         médias sociaux. Les fonctionnalités clés incluent l'authentification, la
         création et la suppression de publications ainsi qu'une interface de
         recherche d'utilisateurs en temps réel.
-      </div>
+      </p>
     ),
     englishDescriptionTemplate: (
-      <div className="fade-in-animation">
+      <p className="fade-in-animation">
         A
         <span className="text-secondaryColor">
           {" "}
@@ -114,7 +114,7 @@ const projects_list = [
         that implements the core features of the social media platform. Key
         features include authentication, creating and deleting posts as well as
         a realtime search interface.
-      </div>
+      </p>
     ),
   },
   {
@@ -125,21 +125,21 @@ const projects_list = [
     previewLink: "https://odin-blog-project.onrender.com/",
     technologies: ["React", "Tailwind CSS", "Express.js", "MongoDB"],
     frenchDescriptionTemplate: (
-      <div className="fade-in-animation">
+      <p className="fade-in-animation">
         Un
         <span className="text-secondaryColor"> blog fonctionnel </span>{" "}
         permettant aux utilisateurs de s'authentiifer, lire des articles et
         ajouter des commentaires. La partie frontend du blog est alimentée par
         une API RESTFul créé à travers Express.js et MongoDB.
-      </div>
+      </p>
     ),
     englishDescriptionTemplate: (
-      <div className="fade-in-animation">
+      <p className="fade-in-animation">
         A <span className="text-secondaryColor"> fully featured blog </span>{" "}
         that allows users to authenticate, read blog posts and add post
         comments. The blog client is powered by a RESTFul blog API built with
         Express.js and mongoDB.
-      </div>
+      </p>
     ),
   },
   {
@@ -150,7 +150,7 @@ const projects_list = [
     previewLink: "https://thunder-computation.onrender.com/",
     technologies: ["React", "Tailwind CSS"],
     frenchDescriptionTemplate: (
-      <div className="fade-in-animation">
+      <p className="fade-in-animation">
         Un
         <span className="text-secondaryColor">
           {" "}
@@ -160,15 +160,15 @@ const projects_list = [
         résultant des interactions des utilisateurs. Le site permet aux
         utilisateurs de parcourir, ajouter et supprimer des articles de leur
         panier
-      </div>
+      </p>
     ),
     englishDescriptionTemplate: (
-      <div className="fade-in-animation">
+      <p className="fade-in-animation">
         A<span className="text-secondaryColor"> computers store </span>
         built with React to reflect real-time updates restulting from user
         interactions. The store allows users to browse, add and remove items
         from their cart.
-      </div>
+      </p>
     ),
   },
 ];
@@ -181,12 +181,12 @@ const Projects = ({ language }) => {
 
   return (
     <section id="projects" className="pt-[60px] xsm:pt-[80px] xmd:pt-[100px]">
-      <section
+      <header
         ref={ref}
         className={`${inView ? "fade-appear-animation" : "opacity-0"}`}
       >
-        <header className="flex items-center gap-5 pb-4">
-          <h1>
+        <div className="flex items-center gap-5 pb-4">
+          <h2>
             {" "}
             <span className="numberOfHeading">03. </span>{" "}
             {language == "French" && (
@@ -199,9 +199,9 @@ const Projects = ({ language }) => {
                 Projects{" "}
               </span>
             )}
-          </h1>
+          </h2>
           <div className="numbered-headings-bar" />
-        </header>
+        </div>
 
         {language == "French" && (
           <div className="fade-in-animation flex flex-col items-center gap-2 pb-10 xsm:flex-row">
@@ -209,7 +209,7 @@ const Projects = ({ language }) => {
               <RiFolderInfoLine className="text-[50px] text-secondaryColor" />
             </div>
 
-            <div className=" rounded-md bg-lightPrimaryColor p-4 text-[18.5px] font-medium text-lightestTertiaryColor">
+            <p className=" rounded-md bg-lightPrimaryColor p-4 text-[18.5px] font-medium text-lightestTertiaryColor">
               {" "}
               Les projets qui incluent des
               <span className="text-secondaryColor">
@@ -234,7 +234,7 @@ const Projects = ({ language }) => {
                 {" "}
                 suite à 15 minutes d'inactivité.
               </span>
-            </div>
+            </p>
           </div>
         )}
 
@@ -244,7 +244,7 @@ const Projects = ({ language }) => {
               <RiFolderInfoLine className="text-[50px] text-secondaryColor" />
             </div>
 
-            <div className=" rounded-md bg-lightPrimaryColor p-4 text-[18.5px] font-medium text-lightestTertiaryColor">
+            <p className=" rounded-md bg-lightPrimaryColor p-4 text-[18.5px] font-medium text-lightestTertiaryColor">
               {" "}
               Projects that include
               <span className="text-secondaryColor">
@@ -268,14 +268,15 @@ const Projects = ({ language }) => {
                 {" "}
                 after 15 minutes of inactivity.
               </span>
-            </div>
+            </p>
           </div>
         )}
-      </section>
+      </header>
 
       <section>
         {projects_list.map((project) => (
           <Project
+            key={project.title}
             isReverse={project.isReverse}
             language={language}
             image={project.image}

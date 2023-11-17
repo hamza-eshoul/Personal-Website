@@ -1,14 +1,14 @@
 import { useState } from "react";
 
 // componnts
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero";
-import SocialLinks from "./components/SocialLinks";
-import EmailLink from "./components/EmailLink";
+import SocialLinks from "./components/Links/SocialLinks";
+import EmailLink from "./components/Links/EmailLink";
 import AboutMe from "./components/AboutMe.Jsx";
-import Skills from "./components/Skills";
-import Projects from "./components/Projects";
-import NoteworthyProjects from "./components/NoteworthyProjects";
+import Skills from "./components/Skills/Skills";
+import Projects from "./components/Projects/Projects";
+import NoteworthyProjects from "./components/Projects/NoteworthyProjects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
@@ -29,11 +29,11 @@ const App = () => {
           <NoteworthyProjects language={language} />
 
           <Contact language={language} />
-          <Footer language={language} />
 
           <SocialLinks />
           <EmailLink />
         </main>
+        <Footer language={language} />
       </div>
     </>
   );

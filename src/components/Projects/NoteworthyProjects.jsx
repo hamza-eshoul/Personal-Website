@@ -72,8 +72,8 @@ const NoteworthyProjects = ({ language }) => {
   ];
 
   return (
-    <section className="xsm:py-[80px] py-[60px] xmd:py-[100px]">
-      <div
+    <section className="py-[60px] xsm:py-[80px] xmd:py-[100px]">
+      <header
         ref={ref}
         className={`${inView ? "fade-appear-animation" : "opacity-0"}`}
       >
@@ -88,11 +88,12 @@ const NoteworthyProjects = ({ language }) => {
             Other Noteworthy Projects
           </h2>
         )}
-      </div>
+      </header>
 
-      <div className="noteworthy-projects-grid">
+      <section className="noteworthy-projects-grid">
         {noteworthy_projects_list.map((project) => (
           <NoteworthyProject
+            key={project.title}
             title={project.title}
             repoLink={project.repoLink}
             previewLink={project.previewLink}
@@ -111,7 +112,7 @@ const NoteworthyProjects = ({ language }) => {
             )}
           </NoteworthyProject>
         ))}
-      </div>
+      </section>
     </section>
   );
 };

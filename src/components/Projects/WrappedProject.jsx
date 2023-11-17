@@ -18,24 +18,24 @@ const WrappedProject = ({
     triggerOnce: true,
   });
   return (
-    <div
+    <article
       ref={ref}
       className={`${
         inView ? "fade-appear-animation" : "opacity-0"
-      } xsm:p-10 xsm:pb-[30px] relative mb-[70px] rounded bg-lightPrimaryColor p-5 pb-[15px] xmd:hidden`}
+      } relative mb-[70px] rounded bg-lightPrimaryColor p-5 pb-[15px] xsm:p-10 xsm:pb-[30px] xmd:hidden`}
     >
-      <div className="xsm:py-[6%]  py-2.5">
+      <div className="py-2.5 xsm:py-[6%]">
         <div className="flex h-full flex-col gap-5 xl:pt-10">
           <div className="flex flex-col gap-2">
             {language == "French" && (
-              <h2 className="fade-in-animation font-mono text-[13px] text-secondaryColor">
+              <h3 className="fade-in-animation font-mono text-[13px] text-secondaryColor">
                 Projet Fonctionnel
-              </h2>
+              </h3>
             )}
             {language == "English" && (
-              <h2 className="fade-in-animation pt-2.5 font-mono text-[13px] text-secondaryColor">
+              <h3 className="fade-in-animation pt-2.5 font-mono text-[13px] text-secondaryColor">
                 Featured Project
-              </h2>
+              </h3>
             )}
 
             <a
@@ -47,13 +47,15 @@ const WrappedProject = ({
             </a>
           </div>
 
-          <div className="text-justify text-[18px] text-lightTertiaryColor">
+          <p className="text-justify text-[18px] text-lightTertiaryColor">
             {children}
-          </div>
+          </p>
 
           <ul className="z-10 flex w-full flex-wrap gap-3 pb-3 pt-2 font-mono text-[13px] text-lightestTertiaryColor">
             {technologies &&
-              technologies.map((technology) => <li>{technology}</li>)}
+              technologies.map((technology) => (
+                <li key={technology}>{technology}</li>
+              ))}
           </ul>
 
           <ul className="z-10 flex gap-3">
@@ -91,7 +93,7 @@ const WrappedProject = ({
           </div>
         </a>
       </div>
-    </div>
+    </article>
   );
 };
 

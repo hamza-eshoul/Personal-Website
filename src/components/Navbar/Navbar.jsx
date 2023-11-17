@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
+import { useDelayMobileNavUnmounting } from "../../hooks/useDelayMobileNavUnmounting";
 
 // icons
 import { MdOutlineLanguage } from "react-icons/md";
@@ -10,45 +11,6 @@ import NavMobileMenu from "./NavMobileMenu";
 
 let oldScrollY = 25;
 
-function useDelayMobileNavUnmounting() {
-  const [mobileMenuMount, setMobileMenuMount] = useState("unmounted");
-
-  const show = () => {
-    if (mobileMenuMount === "unmounting") {
-      return;
-    }
-
-    setMobileMenuMount("mounting");
-  };
-
-  const hide = () => {
-    if (mobileMenuMount === "mounting") {
-      return;
-    }
-    setMobileMenuMount("unmounting");
-  };
-
-  useEffect(() => {
-    let timeoutId;
-
-    if (mobileMenuMount === "unmounting") {
-      timeoutId = setTimeout(() => {
-        setMobileMenuMount("unmounted");
-      }, 390);
-    } else if (mobileMenuMount === "mounting") {
-      timeoutId = setTimeout(() => {
-        setMobileMenuMount("mounted");
-      }, 390);
-    }
-
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, [mobileMenuMount]);
-
-  return [mobileMenuMount, show, hide];
-}
-
 const Navbar = ({ language, setLanguage }) => {
   const [scrollDirection, setScrollDirection] = useState("up");
   const { ref, inView } = useInView({
@@ -57,6 +19,44 @@ const Navbar = ({ language, setLanguage }) => {
   });
   const [mobileMenuMount, show, hide] = useDelayMobileNavUnmounting();
   const [isMenuActive, setIsMenuActive] = useState(false);
+
+  const sectionReferences = {
+    aboutMeRef: document.querySelector("#aboutMe"),
+    skillsRef: document.querySelector("#skills"),
+    projectsRef: document.querySelector("#projects"),
+    contactRef: document.querySelector("#contact"),
+  };
+
+  const nav_items = [
+    {
+      number: "01.",
+      french_title: "À propos",
+      english_title: "About",
+      sectionRef: sectionReferences.aboutMeRef,
+    },
+    {
+      number: "02.",
+      french_title: "Compétences",
+      english_title: "Skills",
+      sectionRef: sectionReferences.skillsRef,
+    },
+    {
+      number: "03.",
+      french_title: "Projets",
+      english_title: "Projects",
+      sectionRef: sectionReferences.projectsRef,
+    },
+    {
+      number: "04.",
+      french_title: "Contact",
+      english_title: "Contact",
+      sectionRef: sectionReferences.contactRef,
+    },
+  ];
+
+  const scrollToSection = (sectionRef) => {
+    sectionRef.scrollIntoView({ behavior: "smooth" });
+  };
 
   const controlDirection = () => {
     if (window.scrollY > oldScrollY) {
@@ -74,24 +74,6 @@ const Navbar = ({ language, setLanguage }) => {
       window.removeEventListener("scroll", controlDirection);
     };
   }, []);
-
-  // section references
-
-  const aboutMeRef = document.querySelector("#aboutMe");
-  const skillsRef = document.querySelector("#skills");
-  const projectsRef = document.querySelector("#projects");
-  const contactRef = document.querySelector("#contact");
-
-  const sectionReferences = {
-    aboutMeRef,
-    skillsRef,
-    projectsRef,
-    contactRef,
-  };
-
-  const scrollToSection = (sectionRef) => {
-    sectionRef.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <header>
@@ -112,34 +94,19 @@ const Navbar = ({ language, setLanguage }) => {
         >
           {language == "French" && (
             <ul className="fade-in-animation flex items-center gap-5 xlg:gap-9">
-              <li
-                className="nav-links"
-                onClick={() => scrollToSection(aboutMeRef)}
-              >
-                <span className=" text-[12px] text-secondaryColor">01.</span> À
-                propos
-              </li>
-              <li
-                className="nav-links"
-                onClick={() => scrollToSection(skillsRef)}
-              >
-                <span className="text-[12px] text-secondaryColor">02.</span>{" "}
-                Compétences
-              </li>
-              <li
-                className="nav-links"
-                onClick={() => scrollToSection(projectsRef)}
-              >
-                <span className="text-[12px] text-secondaryColor">03.</span>{" "}
-                Projets
-              </li>
-              <li
-                className="nav-links"
-                onClick={() => scrollToSection(contactRef)}
-              >
-                <span className="text-[12px] text-secondaryColor">04.</span>{" "}
-                Contact
-              </li>
+              {nav_items.map((item) => (
+                <li
+                  key={item.number}
+                  className="nav-links"
+                  onClick={() => scrollToSection(item.sectionRef)}
+                >
+                  <span className="text-[12px] text-secondaryColor">
+                    {item.number}
+                  </span>{" "}
+                  {item.french_title}
+                </li>
+              ))}
+
               <li>
                 <div className={`group relative h-[38px] w-[84px]`}>
                   <button className="absolute bottom-0 left-0 right-0 top-0 z-20 w-full rounded border-[1px] border-secondaryColor bg-primaryColor font-mono text-[14px] text-secondaryColor transition-transform duration-300 ease-in-out group-hover:-translate-x-1 group-hover:-translate-y-1">
@@ -177,34 +144,18 @@ const Navbar = ({ language, setLanguage }) => {
 
           {language == "English" && (
             <ul className="fade-in-animation flex items-center gap-7 xlg:gap-9">
-              <li
-                className="nav-links"
-                onClick={() => scrollToSection(aboutMeRef)}
-              >
-                <span className=" text-[12px] text-secondaryColor">01.</span>{" "}
-                About
-              </li>
-              <li
-                className="nav-links"
-                onClick={() => scrollToSection(skillsRef)}
-              >
-                <span className="text-[12px] text-secondaryColor">02.</span>{" "}
-                Skills
-              </li>
-              <li
-                className="nav-links"
-                onClick={() => scrollToSection(projectsRef)}
-              >
-                <span className="text-[12px] text-secondaryColor">03.</span>{" "}
-                Projects
-              </li>
-              <li
-                className="nav-links"
-                onClick={() => scrollToSection(contactRef)}
-              >
-                <span className="text-[12px] text-secondaryColor">04.</span>{" "}
-                Contact
-              </li>
+              {nav_items.map((item) => (
+                <li
+                  key={item.number}
+                  className="nav-links"
+                  onClick={() => scrollToSection(item.sectionRef)}
+                >
+                  <span className="text-[12px] text-secondaryColor">
+                    {item.number}
+                  </span>{" "}
+                  {item.english_title}
+                </li>
+              ))}
               <li>
                 <div className={`group relative h-[38px] w-[84px]`}>
                   <button className="absolute bottom-0 left-0 right-0 top-0 z-20 w-full rounded border-[1px] border-secondaryColor bg-primaryColor font-mono text-[14px] text-secondaryColor transition-transform duration-300 ease-in-out group-hover:-translate-x-1 group-hover:-translate-y-1">
@@ -269,11 +220,11 @@ const Navbar = ({ language, setLanguage }) => {
       {mobileMenuMount !== "unmounted" && (
         <NavMobileMenu
           mobileMenuMount={mobileMenuMount}
-          setIsMenuActive={setIsMenuActive}
+          hide={hide}
           isMenuActive={isMenuActive}
+          setIsMenuActive={setIsMenuActive}
           language={language}
           setLanguage={setLanguage}
-          hide={hide}
           sectionReferences={sectionReferences}
           scrollToSection={scrollToSection}
         />
