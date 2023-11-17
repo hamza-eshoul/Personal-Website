@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero";
 import SocialLinks from "./components/Links/SocialLinks";
 import EmailLink from "./components/Links/EmailLink";
-import AboutMe from "./components/AboutMe.Jsx";
+import AboutMe from "./components/AboutMe";
 import Skills from "./components/Skills/Skills";
 import Projects from "./components/Projects/Projects";
 import NoteworthyProjects from "./components/Projects/NoteworthyProjects";
