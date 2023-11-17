@@ -5,6 +5,7 @@ import mern from "../assets/images/MERN.png";
 
 const AboutMe = ({ language }) => {
   const { ref, inView } = useInView({
+    root: null,
     threshold: 0.5,
     triggerOnce: true,
   });
