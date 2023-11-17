@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-// componnts
+// components
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero";
 import SocialLinks from "./components/Links/SocialLinks";
@@ -14,6 +14,8 @@ import Footer from "./components/Footer";
 
 const App = () => {
   const [language, setLanguage] = useState("French");
+
+  console.log(AboutMe);
 
   return (
     <>
