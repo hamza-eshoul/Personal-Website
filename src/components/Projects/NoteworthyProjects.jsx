@@ -43,7 +43,7 @@ const NoteworthyProjects = ({ language }) => {
     {
       title: "CV Application",
       repoLink: "https://github.com/hamza-eshoul/React-Cv-Project",
-      previewLink: "https://hamza-eshoul.github.io/React-Cv-Project/",
+      previewLink: "https://cv-generator-vezb.onrender.com",
       technologies: ["React, Tailwind CSS"],
       frenchDescription:
         "Un générateur de CV permettant aux utilisateurs de créer de manière dynamique des CV professionels.",
@@ -53,7 +53,7 @@ const NoteworthyProjects = ({ language }) => {
     {
       title: "Memory Card Game",
       repoLink: "https://github.com/hamza-eshoul/Memory-Card-Project",
-      previewLink: "https://hamza-eshoul.github.io/Memory-Card-Project/",
+      previewLink: "https://odin-memory-card.onrender.com/",
       technologies: ["React, Tailwind CSS"],
       frenchDescription:
         "Un jeu de mémoire comprenant 12 cartes et 12 personnages créé à travers React.",

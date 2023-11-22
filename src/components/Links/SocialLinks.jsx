@@ -2,7 +2,7 @@ import { useInView } from "react-intersection-observer";
 
 // icons
 import { FiGithub } from "react-icons/fi";
-import { FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaYoutube } from "react-icons/fa";
 import { FiTwitter, FiLinkedin } from "react-icons/fi";
 
 const social_links_icons = [
@@ -12,11 +12,15 @@ const social_links_icons = [
   },
   {
     icon: <FaInstagram />,
-    link: "1",
+    link: "https://www.instagram.com/hamza.eshoul",
   },
   {
     icon: <FiTwitter />,
-    link: "2",
+    link: "https://twitter.com/hamza_eshoul",
+  },
+  {
+    icon: <FaYoutube />,
+    link: "https://www.youtube.com/channel/UCP21svaUb9Cn4M2zlLiEoKA",
   },
   {
     icon: <FiLinkedin />,
