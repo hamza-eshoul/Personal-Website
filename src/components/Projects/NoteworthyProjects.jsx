@@ -22,8 +22,8 @@ const NoteworthyProjects = ({ language }) => {
     },
     {
       title: "Battleship Game",
-      repoLink: "https://github.com/hamza-eshoul/Battleship-Project/",
-      previewLink: "https://hamza-eshoul.github.io/Battleship-Project/",
+      repoLink: "https://github.com/hamza-eshoul/Battleship",
+      previewLink: "https://hamza-eshoul.github.io/Battleship/",
       technologies: ["HTML, CSS, JavaScript, Jest"],
       frenchDescription:
         "Un jeu multijoueur stratégique construit avec Vanilla JavaScript et piloté par des test implementés à travers Jest.",
