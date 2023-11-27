@@ -52,7 +52,7 @@ const AboutMe = ({ language }) => {
                 {" "}
                 The Odin Project
               </a>
-              , un programme spécialisé dans l'enseignement des compétences
+              , une formation spécialisée dans l'enseignement des compétences
               nécessaires pour créer des applications web full stack modernes.
             </p>
 
