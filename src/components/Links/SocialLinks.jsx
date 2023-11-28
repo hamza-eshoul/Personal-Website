@@ -24,7 +24,7 @@ const social_links_icons = [
   },
   {
     icon: <FiLinkedin />,
-    link: "3",
+    link: "www.linkedin.com/in/hamza-eshoul",
   },
 ];
 
