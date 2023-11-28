@@ -58,7 +58,7 @@ const AboutMe = ({ language }) => {
 
             <p className="pt-4">
               Je suis constamment à la recherche d'opportunités pour apprendre
-              de nouveux concepts, technologies et outils pour créer des
+              de nouveaux concepts, technologies et outils pour créer des
               <span className="font-medium text-secondaryColor">
                 {" "}
                 applications web centrées sur l'utilisateur.
