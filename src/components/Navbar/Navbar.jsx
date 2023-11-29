@@ -107,13 +107,13 @@ const Navbar = ({ language, setLanguage }) => {
                 </li>
               ))}
 
-              <li>
-                <div className={`group relative h-[38px] w-[84px]`}>
+              <li className={`group relative h-[38px] w-[84px]`}>
+                <a href="CV_Hamza_Eshoul.pdf" target="_blank">
                   <button className="absolute bottom-0 left-0 right-0 top-0 z-20 w-full rounded border-[1px] border-secondaryColor bg-primaryColor font-mono text-[14px] text-secondaryColor transition-transform duration-300 ease-in-out group-hover:-translate-x-1 group-hover:-translate-y-1">
                     Mon CV
                   </button>
                   <div className="absolute bottom-0 left-0 right-0 top-0 rounded bg-secondaryColor"></div>
-                </div>
+                </a>
               </li>
               <li className="flex items-center justify-center gap-2">
                 <MdOutlineLanguage className="text-[22px] text-secondaryColor" />
@@ -156,13 +156,13 @@ const Navbar = ({ language, setLanguage }) => {
                   {item.english_title}
                 </li>
               ))}
-              <li>
-                <div className={`group relative h-[38px] w-[84px]`}>
+              <li className={`group relative h-[38px] w-[84px]`}>
+                <a href="Resume.pdf" target="_blank">
                   <button className="absolute bottom-0 left-0 right-0 top-0 z-20 w-full rounded border-[1px] border-secondaryColor bg-primaryColor font-mono text-[14px] text-secondaryColor transition-transform duration-300 ease-in-out group-hover:-translate-x-1 group-hover:-translate-y-1">
                     Resume
                   </button>
                   <div className="absolute bottom-0 left-0 right-0 top-0 rounded bg-secondaryColor"></div>
-                </div>
+                </a>
               </li>
               <li className="flex items-center justify-center gap-2">
                 <MdOutlineLanguage className="text-[22px] text-secondaryColor" />
