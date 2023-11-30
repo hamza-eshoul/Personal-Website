@@ -9,7 +9,7 @@ import { MdOutlineLanguage } from "react-icons/md";
 import Logo from "./Logo";
 import NavMobileMenu from "./NavMobileMenu";
 
-let oldScrollY = 25;
+let oldScrollY = 0;
 
 const Navbar = ({ language, setLanguage }) => {
   const [scrollDirection, setScrollDirection] = useState("up");
@@ -59,6 +59,9 @@ const Navbar = ({ language, setLanguage }) => {
   };
 
   const controlDirection = () => {
+    if (window.scrollY < 50) {
+      return;
+    }
     if (window.scrollY > oldScrollY) {
       setScrollDirection("down");
     } else {
