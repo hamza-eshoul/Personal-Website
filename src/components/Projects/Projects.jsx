@@ -1,3 +1,4 @@
+import React from "react";
 import { useInView } from "react-intersection-observer";
 
 // icons
@@ -173,8 +174,8 @@ const projects_list = [
   },
 ];
 
-const Projects = ({ language }) => {
-  const { ref, inView } = useInView({
+const Projects = React.forwardRef(({ language }, ref) => {
+  const { observerRef, inView } = useInView({
     threshold: 0.6,
     triggerOnce: true,
   });
@@ -182,7 +183,7 @@ const Projects = ({ language }) => {
   return (
     <section id="projects" className="pt-[60px] xsm:pt-[80px] xmd:pt-[100px]">
       <header
-        ref={ref}
+        ref={observerRef}
         className={`${inView ? "fade-appear-animation" : "opacity-0"}`}
       >
         <div className="flex items-center gap-5 pb-4">
@@ -273,7 +274,7 @@ const Projects = ({ language }) => {
         )}
       </header>
 
-      <section>
+      <section ref={ref}>
         {projects_list.map((project) => (
           <Project
             key={project.title}
@@ -293,6 +294,6 @@ const Projects = ({ language }) => {
       </section>
     </section>
   );
-};
+});
 
 export default Projects;

@@ -1,7 +1,7 @@
 import { useInView } from "react-intersection-observer";
 
 // images
-import mern from "../assets/images/MERN.png";
+import mern from "../assets/images/mern.jpg";
 
 const AboutMe = ({ language }) => {
   const { ref, inView } = useInView({
