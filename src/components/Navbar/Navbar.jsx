@@ -11,7 +11,7 @@ import NavMobileMenu from "./NavMobileMenu";
 
 let oldScrollY = 0;
 
-const Navbar = ({ language, setLanguage, projectsRef }) => {
+const Navbar = ({ language, setLanguage }) => {
   const [scrollDirection, setScrollDirection] = useState("up");
   const { ref, inView } = useInView({
     threshold: 0.6,
@@ -23,7 +23,7 @@ const Navbar = ({ language, setLanguage, projectsRef }) => {
   const sectionReferences = {
     aboutMeRef: document.querySelector("#aboutMe"),
     skillsRef: document.querySelector("#skills"),
-    projectsRef: projectsRef.current,
+    projectsRef: document.querySelector("#projects"),
     contactRef: document.querySelector("#contact"),
   };
 

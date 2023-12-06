@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 // components
 import Navbar from "./components/Navbar/Navbar";
@@ -14,15 +14,10 @@ import Footer from "./components/Footer";
 
 const App = () => {
   const [language, setLanguage] = useState("French");
-  const projectsRef = useRef(null);
 
   return (
     <>
-      <Navbar
-        language={language}
-        setLanguage={setLanguage}
-        projectsRef={projectsRef}
-      />
+      <Navbar language={language} setLanguage={setLanguage} />
       <div className="min-h-screen bg-primaryColor px-[20px] font-sans leading-[1.3] text-tertiaryColor antialiased xsm:px-[25px] sm:px-[50px] xmd:px-[100px] xlg:px-40">
         <main className="mx-auto max-w-5xl">
           <Hero language={language} />
@@ -30,7 +25,7 @@ const App = () => {
           <AboutMe language={language} />
           <Skills language={language} />
 
-          <Projects language={language} ref={projectsRef} />
+          <Projects language={language} />
           <NoteworthyProjects language={language} />
 
           <Contact language={language} />

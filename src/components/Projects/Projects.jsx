@@ -174,8 +174,8 @@ const projects_list = [
   },
 ];
 
-const Projects = React.forwardRef(({ language }, ref) => {
-  const { observerRef, inView } = useInView({
+const Projects = ({ language }) => {
+  const { ref, inView } = useInView({
     threshold: 0.6,
     triggerOnce: true,
   });
@@ -183,7 +183,7 @@ const Projects = React.forwardRef(({ language }, ref) => {
   return (
     <section id="projects" className="pt-[60px] xsm:pt-[80px] xmd:pt-[100px]">
       <header
-        ref={observerRef}
+        ref={ref}
         className={`${inView ? "fade-appear-animation" : "opacity-0"}`}
       >
         <div className="flex items-center gap-5 pb-4">
@@ -274,7 +274,7 @@ const Projects = React.forwardRef(({ language }, ref) => {
         )}
       </header>
 
-      <section ref={ref}>
+      <section>
         {projects_list.map((project) => (
           <Project
             key={project.title}
@@ -294,6 +294,6 @@ const Projects = React.forwardRef(({ language }, ref) => {
       </section>
     </section>
   );
-});
+};
 
 export default Projects;
