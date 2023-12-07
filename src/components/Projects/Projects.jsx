@@ -229,8 +229,11 @@ const Projects = ({ language }) => {
                 Render
               </a>{" "}
               qui
-              <span className="text-secondaryColor"> arrête </span> les serveurs
-              hebergés
+              <span className="text-secondaryColor">
+                {" "}
+                suspend l'activité{" "}
+              </span>{" "}
+              des serveurs hebergés
               <span className="text-secondaryColor">
                 {" "}
                 suite à 15 minutes d'inactivité.
