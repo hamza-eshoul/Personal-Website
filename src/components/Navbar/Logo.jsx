@@ -5,12 +5,16 @@ const Logo = () => {
     threshold: 0.6,
     triggerOnce: true,
   });
+
+  const heroRef = document.querySelector("#hero");
+
   return (
     <div
       ref={ref}
       className={`${
         inView ? "fade-in-animation" : "opacity-0"
       } group relative cursor-pointer`}
+      onClick={() => heroRef.scrollIntoView({ behavior: "smooth" })}
     >
       <svg
         id="logo"

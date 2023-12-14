@@ -12,6 +12,7 @@ const Hero = ({ language }) => {
     <section
       ref={ref}
       className={`${inView ? "fade-appear-animation" : "opacity-0"}`}
+      id="hero"
     >
       {language == "French" && (
         <div className="fade-in-animation flex h-screen min-h-screen flex-col justify-center pl-2.5">
@@ -23,7 +24,7 @@ const Hero = ({ language }) => {
             Je crée des applications pour le web.
           </h2>
 
-          <p className="xsm:text-[20px] max-w-[540px] -translate-x-1 py-5 text-[18px] font-normal">
+          <p className="max-w-[540px] -translate-x-1 py-5 text-[18px] font-normal xsm:text-[20px]">
             Je suis un{" "}
             <span className="font-medium text-secondaryColor">
               {" "}
@@ -58,7 +59,7 @@ const Hero = ({ language }) => {
             I build things for the web.
           </h2>
 
-          <p className="xsm:text-[20px] max-w-[540px]  -translate-x-1 py-5 text-[18px] font-normal">
+          <p className="max-w-[540px] -translate-x-1  py-5 text-[18px] font-normal xsm:text-[20px]">
             I’m a{" "}
             <span className="font-medium text-secondaryColor">
               {" "}
