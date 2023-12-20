@@ -28,7 +28,7 @@ const Hero = ({ language }) => {
             Je suis un{" "}
             <span className="font-medium text-secondaryColor">
               {" "}
-              développeur full stack{" "}
+              développeur web{" "}
             </span>{" "}
             spécialisé dans la création de sites et d'applications web modernes
             centrées sur l'utilisateur en employant la puissance des
@@ -63,7 +63,7 @@ const Hero = ({ language }) => {
             I’m a{" "}
             <span className="font-medium text-secondaryColor">
               {" "}
-              full stack web developer{" "}
+              web developer{" "}
             </span>{" "}
             specializing in building modern user-centric web applications
             utilizing the power of the
