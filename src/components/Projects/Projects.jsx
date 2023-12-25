@@ -129,7 +129,7 @@ const projects_list = [
       <p className="fade-in-animation">
         Un
         <span className="text-secondaryColor"> blog fonctionnel </span>{" "}
-        permettant aux utilisateurs de s'authentiifer, lire des articles et
+        permettant aux utilisateurs de s'authentifer, lire des articles et
         ajouter des commentaires. La partie frontend du blog est alimentée par
         une API RESTFul créé à travers Express.js et MongoDB.
       </p>
