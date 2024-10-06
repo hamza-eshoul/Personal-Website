@@ -82,40 +82,40 @@ h6 {
 
 @layer components {
   .nav-links {
-    @apply cursor-pointer text-[13px] text-lightestTertiaryColor transition duration-300 ease-in-out hover:text-secondaryColor;
+    @apply text-lightestTertiaryColor hover:text-secondaryColor cursor-pointer text-[13px] transition duration-300 ease-in-out;
   }
 
   .social-links {
-    @apply cursor-pointer text-[20px] text-lightTertiaryColor;
+    @apply text-lightTertiaryColor cursor-pointer text-[20px];
   }
 
   .numberOfHeading {
-    @apply font-mono text-secondaryColor [font-size:_clamp(16px,3vw,20px)];
+    @apply text-secondaryColor font-mono [font-size:_clamp(16px,3vw,20px)];
   }
 
   .numbered-headings {
-    @apply font-semibold text-lightestTertiaryColor [font-size:_clamp(26px,5vw,32px)];
+    @apply text-lightestTertiaryColor font-semibold [font-size:_clamp(26px,5vw,32px)];
   }
 
   .numbered-headings-bar {
-    @apply h-[1px] flex-grow bg-lightestPrimaryColor xmd:w-[200px] xmd:grow-0 xlg:w-[300px];
+    @apply bg-lightestPrimaryColor xmd:w-[200px] xmd:grow-0 xlg:w-[300px] h-[1px] flex-grow;
   }
 
   .animate-social-links,
   .animate-skill-icons {
-    @apply transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:text-secondaryColor;
+    @apply hover:text-secondaryColor transition-transform duration-300 ease-in-out hover:-translate-y-1;
   }
 
   .email-link {
-    @apply rotate-90 cursor-pointer text-lightTertiaryColor;
+    @apply text-lightTertiaryColor rotate-90 cursor-pointer;
   }
 
   .animate-email-link {
-    @apply transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:text-secondaryColor;
+    @apply hover:text-secondaryColor transition-transform duration-300 ease-in-out hover:-translate-y-1;
   }
 
   .project-links {
-    @apply cursor-pointer text-[20px] text-lightestTertiaryColor transition duration-300 ease-in-out hover:text-secondaryColor;
+    @apply text-lightestTertiaryColor hover:text-secondaryColor cursor-pointer text-[20px] transition duration-300 ease-in-out;
   }
 
   .noteworthy-project-links {
@@ -123,7 +123,7 @@ h6 {
   }
 
   .skill-items {
-    @apply cursor-pointer border-b-[2px] border-lightestPrimaryColor px-2 py-3.5 font-mono text-[13px] transition duration-300 ease-in-out hover:bg-lightPrimaryColor hover:text-secondaryColor xsm:px-5  xmd:border-b-[0px] xmd:border-l-[2px];
+    @apply border-lightestPrimaryColor hover:bg-lightPrimaryColor hover:text-secondaryColor xsm:px-5 xmd:border-b-[0px] xmd:border-l-[2px] cursor-pointer border-b-[2px] px-2 py-3.5 font-mono text-[13px] transition  duration-300 ease-in-out;
   }
 }
 

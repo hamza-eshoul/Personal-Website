@@ -1,0 +1,9 @@
+{
+  "hero": {
+    "greeting": "Hi, my name is",
+    "name": "Hamza Eshoul.",
+    "tagline": "I build things for the web.",
+    "description": "",
+    "ctaButton": "Get in touch!"
+  }
+}

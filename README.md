@@ -1,55 +1,50 @@
-## Personal Website Project
+# React + TypeScript + Vite
 
-[![fr](https://img.shields.io/badge/lang-fr-blue)](README.fr.md)
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-This is the repository for my personal portfolio website built with React.
+Currently, two official plugins are available:
 
-The goal of the project was to showcase the various works and projects that I worked on throughout my full stack web development journey.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-The project's designed was inspired by the design of the personal portfolio website made by Britanny Chiang : https://github.com/bchiang7/v4
+## Expanding the ESLint configuration
 
-- Project's Live Preview url - https://hamzaeshoul.com/
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-## Homepage
+- Configure the top-level `parserOptions` property like this:
 
-![Homepage Screenshot](/screenshots/Homepage.png)
-
-## Projects Section
-
-![Projects Screenshot](/screenshots/Projects.png)
-
-## Mobile Version
-
-![Mobile Version Screenshot](/screenshots/Mobile-version.png)
-
-## Mobile Navigation
-
-![Mobile Navigation Screenshot](/screenshots/Mobile-navigation.png)
-
-## Technologies Used
-
-- ReactJS
-- Tailwind CSS
-
-## Key features
-
-- Intuitive User Interface
-- Fully Responsive User Interface
-
-## Installation
-
-To run the project locally :
-
-- Access the project's root folder and run the following command to install the project's dependecies
-
-```
-npm install
+```js
+export default tseslint.config({
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
 ```
 
-- Run the following command to spin up a local development server
+- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
+- Optionally add `...tseslint.configs.stylisticTypeChecked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```
-npm run dev
-```
+```js
+// eslint.config.js
+import react from 'eslint-plugin-react'
 
-- Open http://localhost:5174 with your browser to access a local version of the project's client
+export default tseslint.config({
+  // Set the react version
+  settings: { react: { version: '18.3' } },
+  plugins: {
+    // Add the react plugin
+    react,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended rules
+    ...react.configs.recommended.rules,
+    ...react.configs['jsx-runtime'].rules,
+  },
+})
+```
