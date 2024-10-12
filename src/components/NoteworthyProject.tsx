@@ -4,6 +4,7 @@ import { useInView } from "react-intersection-observer";
 import { AiOutlineFolder } from "react-icons/ai";
 import { FiGithub } from "react-icons/fi";
 import { PiArrowSquareOut } from "react-icons/pi";
+import { useTranslation } from "react-i18next";
 
 interface NoteworthyProjectProps {
   data: {
@@ -17,6 +18,7 @@ interface NoteworthyProjectProps {
 
 const NoteworthyProject = ({ data }: NoteworthyProjectProps) => {
   // library hooks
+  const { t } = useTranslation();
   const { ref, inView } = useInView({
     threshold: 0.6,
     triggerOnce: true,
@@ -32,10 +34,10 @@ const NoteworthyProject = ({ data }: NoteworthyProjectProps) => {
       ref={ref}
       className={`${
         inView ? "fade-appear-animation" : "opacity-0"
-      } bg-lightPrimaryColor group cursor-pointer rounded p-8 transition duration-200 ease-in-out hover:-translate-y-1.5`}
+      } group cursor-pointer rounded bg-lightPrimaryColor p-8 transition duration-200 ease-in-out hover:-translate-y-1.5`}
     >
       <header className="flex items-center justify-between pb-[35px]">
-        <AiOutlineFolder className="text-secondaryColor text-[45px]" />
+        <AiOutlineFolder className="text-[45px] text-secondaryColor" />
         <ul className="flex gap-3">
           <li>
             <a href={repoLink} target="_blank">
@@ -52,12 +54,12 @@ const NoteworthyProject = ({ data }: NoteworthyProjectProps) => {
         </ul>
       </header>
 
-      <h3 className="text-lightestTertiaryColor hover:text-secondaryColor group-hover:text-secondaryColor pb-2.5 text-[22px] font-semibold">
+      <h3 className="pb-2.5 text-[22px] font-semibold text-lightestTertiaryColor hover:text-secondaryColor group-hover:text-secondaryColor">
         {title}
       </h3>
 
-      <p className="fade-in-animation text-lightTertiaryColor text-[17px]">
-        {description}
+      <p className="fade-in-animation text-[17px] text-lightTertiaryColor">
+        {t(description)}
       </p>
 
       <ul className="flex w-full flex-wrap gap-3 pt-5 font-mono text-[12px]">
