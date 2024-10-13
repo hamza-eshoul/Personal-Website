@@ -49,7 +49,7 @@ const projects_list: ProjectData[] = [
       "https://res.cloudinary.com/dfrd9rf2c/image/upload/v1728740667/personal_portfolio/devLog_ahgymq.png",
     title: "Dev Log",
     repoLink: "https://github.com/hamza-eshoul/Dev-Log-Backend",
-    previewLink: "https://devlog.up.railway.app/",
+    previewLink: "https://blog.hamzaeshoul.com/",
     technologies: ["React", "TailwindCSS", "NestJS", "PostgreSQL"],
     description: {
       text: "projects.devLog.description",
